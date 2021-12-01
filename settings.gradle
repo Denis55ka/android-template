@@ -5,6 +5,7 @@ pluginManagement {
         mavenCentral()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -12,7 +13,10 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 include ':app',
         ':core',
+        ':core:serialization',
+        ':core:network',
         ':core:ui',
         ':features:main'

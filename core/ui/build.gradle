@@ -34,7 +34,7 @@ android {
 
 dependencies {
 
-    api project(":core")
+    api project(':core')
 
     // AndroidX
     api 'androidx.appcompat:appcompat:1.4.0'
@@ -52,10 +52,9 @@ dependencies {
     api "androidx.compose.material:material-icons-extended:$versions.androidx.compose"
 
     // Accompanist
-    versions['accompanist'] = '0.21.3-beta'
-    api "com.google.accompanist:accompanist-pager:$versions.accompanist"
-    api "com.google.accompanist:accompanist-placeholder:$versions.accompanist"
-    api "com.google.accompanist:accompanist-swiperefresh:$versions.accompanist"
+    api 'com.google.accompanist:accompanist-pager:0.21.3-beta'
+    api 'com.google.accompanist:accompanist-placeholder:0.21.3-beta'
+    api 'com.google.accompanist:accompanist-swiperefresh:0.21.3-beta'
 
     api 'com.google.android.material:material:1.4.0'
 }
