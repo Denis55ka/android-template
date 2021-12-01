@@ -7,7 +7,7 @@ android {
     compileSdk versions.compileSdk
 
     defaultConfig {
-        applicationId "app.deni55ka.arch"
+        applicationId "app.deni55ka.template"
         minSdk versions.minSdk
         targetSdk versions.compileSdk
         versionCode 1
