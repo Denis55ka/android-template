@@ -50,11 +50,12 @@ dependencies {
     api "androidx.compose.material:material:$versions.androidx.compose"
     api "androidx.compose.material:material-icons-core:$versions.androidx.compose"
     api "androidx.compose.material:material-icons-extended:$versions.androidx.compose"
+    api "androidx.compose.material3:material3:1.0.0-alpha02"
 
     // Accompanist
-    api 'com.google.accompanist:accompanist-pager:0.21.3-beta'
-    api 'com.google.accompanist:accompanist-placeholder:0.21.3-beta'
-    api 'com.google.accompanist:accompanist-swiperefresh:0.21.3-beta'
+    api 'com.google.accompanist:accompanist-pager:0.21.4-beta'
+    api 'com.google.accompanist:accompanist-placeholder:0.21.4-beta'
+    api 'com.google.accompanist:accompanist-swiperefresh:0.21.4-beta'
 
-    api 'com.google.android.material:material:1.4.0'
+    api 'com.google.android.material:material:1.6.0-alpha01'
 }
