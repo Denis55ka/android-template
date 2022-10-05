@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'app.deni55ka.template'
+    namespace 'app.denis55ka.template'
 
     compileSdk versions.compileSdk
 

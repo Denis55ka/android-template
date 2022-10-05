@@ -1,4 +1,4 @@
-package app.deni55ka.core.ui.theme
+package app.denis55ka.core.ui.theme
 
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors

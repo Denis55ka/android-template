@@ -1,4 +1,4 @@
-package app.deni55ka.core.ui.theme
+package app.denis55ka.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package app.deni55ka.core
+package app.denis55ka.core
 
 sealed class ActionState<out T>(
     open val data: T? = null,

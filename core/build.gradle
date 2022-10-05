@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'app.deni55ka.core'
+    namespace 'app.denis55ka.core'
 
     compileSdk versions.compileSdk
 

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'app.deni55ka.core.serialization'
+    namespace 'app.denis55ka.core.serialization'
 
     compileSdk versions.compileSdk
 
