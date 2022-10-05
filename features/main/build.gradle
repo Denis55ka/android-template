@@ -5,23 +5,21 @@ plugins {
 }
 
 android {
+    namespace 'app.deni55ka.main'
+
     compileSdk versions.compileSdk
 
     defaultConfig {
         minSdk versions.minSdk
     }
 
-    sourceSets.getByName("main") {
-        java.srcDir("src/main/kotlin")
-    }
-
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_11
     }
 
     buildFeatures {
@@ -29,7 +27,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion versions.androidx.compose
+        kotlinCompilerExtensionVersion versions.androidx.composecompiler
     }
 }
 

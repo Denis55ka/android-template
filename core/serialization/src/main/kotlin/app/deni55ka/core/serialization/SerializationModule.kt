@@ -1,4 +1,4 @@
-package app.deni55ka.serialization
+package app.deni55ka.core.serialization
 
 import dagger.Module
 import dagger.Provides

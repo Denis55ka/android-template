@@ -1,4 +1,4 @@
-package app.deni55ka.ui.theme
+package app.deni55ka.core.ui.theme
 
 import androidx.compose.material.Typography
 

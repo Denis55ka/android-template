@@ -1,4 +1,4 @@
-package app.deni55ka.ui.extensions
+package app.deni55ka.core.ui.extensions
 
 import app.deni55ka.core.ActionState
 import kotlinx.coroutines.CancellationException

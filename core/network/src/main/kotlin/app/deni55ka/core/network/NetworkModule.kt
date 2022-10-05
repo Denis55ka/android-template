@@ -1,4 +1,4 @@
-package app.deni55ka.network
+package app.deni55ka.core.network
 
 import dagger.Module
 import dagger.Provides
