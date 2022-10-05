@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'com.squareup.anvil'
 }
 
 android {
@@ -22,17 +23,24 @@ android {
     }
 }
 
+anvil {
+    generateDaggerFactories = true
+}
+
 dependencies {
 
     api project(':core')
     api project(':core:serialization')
 
     // Ktor
-    api 'io.ktor:ktor-client:1.6.7'
-    implementation 'io.ktor:ktor-client-okhttp:1.6.7'
-    implementation 'io.ktor:ktor-client-serialization:1.6.7'
+    versions['ktor'] = '2.1.2'
+    api "io.ktor:ktor-client-core:$versions.ktor"
+    implementation "io.ktor:ktor-client-okhttp:$versions.ktor"
+    implementation "io.ktor:ktor-client-content-negotiation:$versions.ktor"
+    implementation "io.ktor:ktor-serialization-kotlinx-json:$versions.ktor"
 
     // OkHttp
-    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    versions['okhttp'] = '4.10.0'
+    api "com.squareup.okhttp3:okhttp:$versions.okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
 }

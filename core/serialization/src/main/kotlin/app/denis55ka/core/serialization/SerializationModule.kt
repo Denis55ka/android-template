@@ -1,20 +1,23 @@
 package app.denis55ka.core.serialization
 
+import app.denis55ka.core.ApplicationScope
+import com.squareup.anvil.annotations.ContributesTo
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
+@ContributesTo(ApplicationScope::class)
 interface SerializationModule {
 
-    @Provides
-    @Singleton
-    fun provideJson() = Json {
-        ignoreUnknownKeys = true
-        coerceInputValues = true
+    companion object {
+
+        @Provides
+        @Singleton
+        fun provideJson(): Json = Json {
+            ignoreUnknownKeys = true
+            coerceInputValues = true
+        }
     }
 }

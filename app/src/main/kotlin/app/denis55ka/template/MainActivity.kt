@@ -14,9 +14,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
+import app.denis55ka.core.ComponentHolder
 import app.denis55ka.core.ui.theme.Themes
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -25,11 +29,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory =
+        ComponentHolder.component<ApplicationComponent>().viewModelFactory()
 }
 
 @Preview
 @Composable
 fun MainScreen() {
+    val viewModel: MainViewModel = viewModel()
     Scaffold(
         topBar = {
             TopAppBar {

@@ -38,6 +38,7 @@ dependencies {
     api 'androidx.appcompat:appcompat:1.5.1'
     api 'androidx.activity:activity-compose:1.6.0'
     api 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    api "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
 
     // Compose
     api "androidx.compose.ui:ui:$versions.androidx.compose"
