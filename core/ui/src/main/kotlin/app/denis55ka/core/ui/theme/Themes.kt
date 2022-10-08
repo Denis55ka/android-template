@@ -1,7 +1,9 @@
 package app.denis55ka.core.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 object Themes {
@@ -12,9 +14,7 @@ object Themes {
         content: @Composable () -> Unit
     ) {
         MaterialTheme(
-            colors = if (darkTheme) Colors.Dark else Colors.Light,
-            typography = Typographies.Default,
-            shapes = Shapes.Default,
+            colorScheme = if (darkTheme) darkColorScheme() else lightColorScheme(),
             content = content
         )
     }
