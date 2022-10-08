@@ -15,11 +15,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
+import androidx.lifecycle.viewmodel.MutableCreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.denis55ka.core.ComponentHolder
 import app.denis55ka.core.ui.theme.Themes
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModelFactoryComponent: ViewModelFactoryComponent by lazy {
+        val creationExtras = MutableCreationExtras(defaultViewModelCreationExtras)
+        creationExtras[ViewModelProvider.NewInstanceFactory.VIEW_MODEL_KEY] = ""
+        DaggerViewModelFactoryComponent.builder()
+            .parent(ComponentHolder.component())
+            .bindSavedStateHandle(creationExtras.createSavedStateHandle())
+            .build()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory =
-        ComponentHolder.component<ApplicationComponent>().viewModelFactory()
+    override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory = viewModelFactoryComponent.viewModelFactory()
 }
 
 @Preview

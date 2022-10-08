@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'com.squareup.anvil'
 }
 
 android {
@@ -28,6 +29,10 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion versions.androidx.composecompiler
     }
+}
+
+anvil {
+    generateDaggerFactories = true
 }
 
 dependencies {
