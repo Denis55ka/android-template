@@ -19,4 +19,4 @@ include ':app',
         ':core:serialization',
         ':core:network',
         ':core:ui',
-        ':features:main'
+        ':feature:main'

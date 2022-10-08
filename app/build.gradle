@@ -52,7 +52,7 @@ dependencies {
     implementation project(':core:network')
     implementation project(':core:ui')
 
-    implementation project(':features:main')
+    implementation project(':feature:main')
 
     kapt "com.google.dagger:dagger-compiler:$versions.dagger"
 }
