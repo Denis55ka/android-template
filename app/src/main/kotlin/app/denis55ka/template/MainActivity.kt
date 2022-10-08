@@ -14,23 +14,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.createSavedStateHandle
-import androidx.lifecycle.viewmodel.MutableCreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
-import app.denis55ka.core.ComponentHolder
+import app.denis55ka.core.Components
+import app.denis55ka.core.ui.extensions.defaultViewModel
 import app.denis55ka.core.ui.theme.Themes
+import app.denis55ka.main.MainViewModel
+import app.denis55ka.main.MainViewModelAssisted
 
 class MainActivity : AppCompatActivity() {
-
-    private val viewModelFactoryComponent: ViewModelFactoryComponent by lazy {
-        val creationExtras = MutableCreationExtras(defaultViewModelCreationExtras)
-        creationExtras[ViewModelProvider.NewInstanceFactory.VIEW_MODEL_KEY] = ""
-        DaggerViewModelFactoryComponent.builder()
-            .parent(ComponentHolder.component())
-            .bindSavedStateHandle(creationExtras.createSavedStateHandle())
-            .build()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,14 +32,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory = viewModelFactoryComponent.viewModelFactory()
 }
 
 @Preview
 @Composable
 fun MainScreen() {
-    val viewModel: MainViewModel = viewModel()
+    val viewModel: MainViewModel = defaultViewModel()
+    val viewModelAssisted: MainViewModelAssisted = viewModel {
+        Components.get<MainViewModelAssisted.Dependencies>().factory().create(createSavedStateHandle())
+    }
     Scaffold(
         topBar = {
             TopAppBar {

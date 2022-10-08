@@ -1,6 +1,6 @@
 package app.denis55ka.core.network
 
-import app.denis55ka.core.ApplicationScope
+import app.denis55ka.core.ApplicationComponentScope
 import com.squareup.anvil.annotations.ContributesTo
 import dagger.Module
 import dagger.Provides
@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-@ContributesTo(ApplicationScope::class)
+@ContributesTo(ApplicationComponentScope::class)
 interface NetworkModule {
 
     companion object {

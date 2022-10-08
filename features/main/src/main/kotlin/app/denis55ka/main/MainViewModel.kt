@@ -1,18 +1,18 @@
-package app.denis55ka.template
+package app.denis55ka.main
 
-import androidx.lifecycle.SavedStateHandle
+import android.app.Application
 import androidx.lifecycle.ViewModel
+import app.denis55ka.core.UserComponentScope
 import app.denis55ka.core.ui.ViewModelKey
-import app.denis55ka.core.ui.ViewModelScope
 import com.squareup.anvil.annotations.ContributesMultibinding
 import io.ktor.client.HttpClient
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
 @ViewModelKey(MainViewModel::class)
-@ContributesMultibinding(ViewModelScope::class)
+@ContributesMultibinding(UserComponentScope::class)
 class MainViewModel @Inject constructor(
-    private val savedStateHandle: SavedStateHandle,
+    private val application: Application,
     private val json: Json,
     private val httpClient: HttpClient,
 ) : ViewModel()

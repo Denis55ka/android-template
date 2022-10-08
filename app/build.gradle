@@ -43,10 +43,6 @@ android {
     }
 }
 
-anvil {
-    generateDaggerFactories = true
-}
-
 dependencies {
 
     implementation project(':core')
