@@ -10,7 +10,7 @@ import dagger.assisted.AssistedInject
 import io.ktor.client.HttpClient
 import kotlinx.serialization.json.Json
 
-class MainViewModelAssisted @AssistedInject constructor(
+class AssistedViewModel @AssistedInject constructor(
     @Assisted private val savedStateHandle: SavedStateHandle,
     private val json: Json,
     private val httpClient: HttpClient,
@@ -19,7 +19,7 @@ class MainViewModelAssisted @AssistedInject constructor(
     @AssistedFactory
     interface Factory {
 
-        fun create(savedStateHandle: SavedStateHandle): MainViewModelAssisted
+        fun create(savedStateHandle: SavedStateHandle): AssistedViewModel
     }
 
     @ContributesTo(UserComponentScope::class)

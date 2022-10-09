@@ -1,17 +1,17 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'org.jetbrains.kotlin.plugin.serialization'
-    id 'com.squareup.anvil'
+    alias(libraries.plugins.android.library)
+    alias(libraries.plugins.kotlin.android)
+    alias(libraries.plugins.kotlin.serialization)
+    alias(libraries.plugins.anvil)
 }
 
 android {
     namespace 'app.denis55ka.core.serialization'
 
-    compileSdk versions.compileSdk
+    compileSdk libraries.versions.compileSdk.get().toInteger()
 
     defaultConfig {
-        minSdk versions.minSdk
+        minSdk libraries.versions.minSdk.get().toInteger()
     }
 
     compileOptions {
@@ -32,5 +32,5 @@ dependencies {
 
     api project(':core')
 
-    api 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0'
+    api libraries.kotlinx.serialization
 }

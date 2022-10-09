@@ -9,16 +9,8 @@ import app.denis55ka.core.Components
 import app.denis55ka.core.ui.ViewModelDependencies
 
 @Composable
-inline fun <reified VM : ViewModel> defaultViewModel(
-    viewModelStoreOwner: ViewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner.current) {
-        "No ViewModelStoreOwner was provided via LocalViewModelStoreOwner"
-    },
-    key: String? = null,
-): VM = componentViewModel(Components.get(), viewModelStoreOwner, key)
-
-@Composable
-inline fun <reified C : ViewModelDependencies, reified VM : ViewModel> componentViewModel(
-    component: C = Components.get(),
+inline fun <reified VM : ViewModel> componentViewModel(
+    component: ViewModelDependencies = Components.get(),
     viewModelStoreOwner: ViewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner.current) {
         "No ViewModelStoreOwner was provided via LocalViewModelStoreOwner"
     },

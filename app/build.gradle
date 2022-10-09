@@ -1,19 +1,19 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'org.jetbrains.kotlin.kapt'
-    id 'com.squareup.anvil'
+    alias(libraries.plugins.android.application)
+    alias(libraries.plugins.kotlin.android)
+    alias(libraries.plugins.anvil)
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'app.denis55ka.template'
 
-    compileSdk versions.compileSdk
+    compileSdk libraries.versions.compileSdk.get().toInteger()
 
     defaultConfig {
         applicationId namespace
-        minSdk versions.minSdk
-        targetSdk versions.compileSdk
+        minSdk libraries.versions.minSdk.get().toInteger()
+        targetSdk libraries.versions.compileSdk.get().toInteger()
         versionCode 1
         versionName "1.0"
     }
@@ -42,7 +42,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion versions.androidx.composecompiler
+        kotlinCompilerExtensionVersion libraries.versions.compose.compiler.get()
     }
 }
 
@@ -54,5 +54,5 @@ dependencies {
 
     implementation project(':feature:main')
 
-    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+    kapt libraries.dagger.compiler
 }

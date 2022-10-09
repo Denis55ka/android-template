@@ -1,16 +1,16 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'com.squareup.anvil'
+    alias(libraries.plugins.android.library)
+    alias(libraries.plugins.kotlin.android)
+    alias(libraries.plugins.anvil)
 }
 
 android {
     namespace 'app.denis55ka.core.network'
 
-    compileSdk versions.compileSdk
+    compileSdk libraries.versions.compileSdk.get().toInteger()
 
     defaultConfig {
-        minSdk versions.minSdk
+        minSdk libraries.versions.minSdk.get().toInteger()
     }
 
     compileOptions {
@@ -33,14 +33,12 @@ dependencies {
     api project(':core:serialization')
 
     // Ktor
-    versions['ktor'] = '2.1.2'
-    api "io.ktor:ktor-client-core:$versions.ktor"
-    implementation "io.ktor:ktor-client-okhttp:$versions.ktor"
-    implementation "io.ktor:ktor-client-content-negotiation:$versions.ktor"
-    implementation "io.ktor:ktor-serialization-kotlinx-json:$versions.ktor"
+    api libraries.ktor
+    implementation libraries.ktor.okhttp
+    implementation libraries.ktor.content.negotiation
+    implementation libraries.ktor.serialization.json
 
     // OkHttp
-    versions['okhttp'] = '4.10.0'
-    api "com.squareup.okhttp3:okhttp:$versions.okhttp"
-    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
+    api libraries.okhttp
+    implementation libraries.okhttp.logging
 }

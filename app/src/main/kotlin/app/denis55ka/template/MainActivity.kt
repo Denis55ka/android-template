@@ -17,10 +17,10 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.denis55ka.core.Components
-import app.denis55ka.core.ui.extensions.defaultViewModel
+import app.denis55ka.core.ui.extensions.componentViewModel
 import app.denis55ka.core.ui.theme.Themes
 import app.denis55ka.main.MainViewModel
-import app.denis55ka.main.MainViewModelAssisted
+import app.denis55ka.main.AssistedViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
 @Preview
 @Composable
 fun MainScreen() {
-    val viewModel: MainViewModel = defaultViewModel()
-    val viewModelAssisted: MainViewModelAssisted = viewModel {
-        Components.get<MainViewModelAssisted.Dependencies>().factory().create(createSavedStateHandle())
+    val viewModel: MainViewModel = componentViewModel()
+    val viewModelAssisted: AssistedViewModel = viewModel {
+        Components.get<AssistedViewModel.Dependencies>().factory().create(createSavedStateHandle())
     }
     Scaffold { paddings ->
         Box(

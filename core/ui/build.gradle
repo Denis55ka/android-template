@@ -1,16 +1,16 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'com.squareup.anvil'
+    alias(libraries.plugins.android.library)
+    alias(libraries.plugins.kotlin.android)
+    alias(libraries.plugins.anvil)
 }
 
 android {
     namespace 'app.denis55ka.core.ui'
 
-    compileSdk versions.compileSdk
+    compileSdk libraries.versions.compileSdk.get().toInteger()
 
     defaultConfig {
-        minSdk versions.minSdk
+        minSdk libraries.versions.minSdk.get().toInteger()
     }
 
     compileOptions {
@@ -27,7 +27,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion versions.androidx.composecompiler
+        kotlinCompilerExtensionVersion libraries.versions.compose.compiler.get()
     }
 }
 
@@ -40,24 +40,26 @@ dependencies {
     api project(':core')
 
     // AndroidX
-    api 'androidx.appcompat:appcompat:1.5.1'
-    api 'androidx.activity:activity-compose:1.6.0'
-    api 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
-    api "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
+    api libraries.androidx.appcompat
+    api libraries.androidx.activity
+    api libraries.androidx.activity.compose
+    api libraries.androidx.lifecycle.runtime
+    api libraries.androidx.lifecycle.viewmodel.compose
 
     // Compose
-    api "androidx.compose.ui:ui:$versions.androidx.compose"
-    api "androidx.compose.ui:ui-tooling:$versions.androidx.compose"
-    api "androidx.compose.ui:ui-tooling-preview:$versions.androidx.compose"
-    api "androidx.compose.foundation:foundation:$versions.androidx.compose"
-    api "androidx.compose.material:material-icons-core:$versions.androidx.compose"
-    api "androidx.compose.material:material-icons-extended:$versions.androidx.compose"
-    api "androidx.compose.material3:material3:1.0.0-rc01"
+    api libraries.compose.ui
+    api libraries.compose.ui.tooling
+    api libraries.compose.ui.tooling.preview
+    api libraries.compose.foundation
+    api libraries.compose.material.icons
+    api libraries.compose.material.icons.extended
+    api libraries.compose.material3
 
     // Accompanist
-    api 'com.google.accompanist:accompanist-pager:0.25.1'
-    api 'com.google.accompanist:accompanist-placeholder:0.25.1'
-    api 'com.google.accompanist:accompanist-swiperefresh:0.25.1'
+    api libraries.accompanist.pager
+    api libraries.accompanist.placeholder
+    api libraries.accompanist.swiperefresh
 
-    api 'com.google.android.material:material:1.8.0-alpha01'
+    // Material
+    api libraries.material
 }
