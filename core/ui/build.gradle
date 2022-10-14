@@ -41,25 +41,22 @@ dependencies {
 
     // AndroidX
     api libraries.androidx.appcompat
-    api libraries.androidx.activity
     api libraries.androidx.activity.compose
-    api libraries.androidx.lifecycle.runtime
     api libraries.androidx.lifecycle.viewmodel.compose
+    api libraries.androidx.navigation.compose
 
     // Compose
     api libraries.compose.ui
     api libraries.compose.ui.tooling
     api libraries.compose.ui.tooling.preview
     api libraries.compose.foundation
+    api libraries.compose.material
     api libraries.compose.material.icons
     api libraries.compose.material.icons.extended
-    api libraries.compose.material3
 
     // Accompanist
     api libraries.accompanist.pager
     api libraries.accompanist.placeholder
     api libraries.accompanist.swiperefresh
-
-    // Material
-    api libraries.material
+    api libraries.accompanist.systemuicontroller
 }
