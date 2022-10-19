@@ -14,13 +14,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.denis55ka.core.Components
-import app.denis55ka.core.ui.extensions.componentViewModel
+import app.denis55ka.core.ui.viewmodel.userViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun MainScreen() {
-    val viewModel: MainViewModel = componentViewModel()
+    val viewModel: MainViewModel = userViewModel()
     val viewModelAssisted: AssistedViewModel = viewModel {
         Components.get<AssistedViewModel.Dependencies>().factory().create(createSavedStateHandle())
     }

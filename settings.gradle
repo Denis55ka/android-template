@@ -86,4 +86,5 @@ include ':app',
         ':core:serialization',
         ':core:network',
         ':core:ui',
-        ':feature:main'
+        ':feature:main',
+        ':feature:main:api'

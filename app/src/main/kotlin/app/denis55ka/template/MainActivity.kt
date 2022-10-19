@@ -7,10 +7,12 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import app.denis55ka.core.ui.viewmodel.applicationViewModels
 import app.denis55ka.core.ui.theme.Themes
-import app.denis55ka.main.MainScreen
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel: MainActivityViewModel by applicationViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             Themes.Main {
                 NavHost(rememberNavController(), startDestination = "main") {
                     composable("main") {
-                        MainScreen()
+                        viewModel.mainRouter.Navigate()
                     }
                 }
             }

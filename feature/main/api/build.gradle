@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'app.denis55ka.main'
+    namespace 'app.denis55ka.main.api'
 
     compileSdk libraries.versions.compileSdk.get().toInteger()
 
@@ -31,13 +31,8 @@ android {
     }
 }
 
-anvil {
-    generateDaggerFactories = true
-}
-
 dependencies {
 
-    implementation project(':core:network')
+    implementation project(':core')
     implementation project(':core:ui')
-    api project(':feature:main:api')
 }
