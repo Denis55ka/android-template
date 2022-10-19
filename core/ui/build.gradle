@@ -4,31 +4,11 @@ plugins {
     alias(libraries.plugins.anvil)
 }
 
+apply from: "$rootDir/gradle/common/android.default.gradle"
+apply from: "$rootDir/gradle/common/android.compose.gradle"
+
 android {
     namespace 'app.denis55ka.core.ui'
-
-    compileSdk libraries.versions.compileSdk.get().toInteger()
-
-    defaultConfig {
-        minSdk libraries.versions.minSdk.get().toInteger()
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
-    }
-
-    buildFeatures {
-        compose true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion libraries.versions.compose.compiler.get()
-    }
 }
 
 anvil {
@@ -36,7 +16,6 @@ anvil {
 }
 
 dependencies {
-
     api project(':core')
 
     // AndroidX

@@ -5,23 +5,10 @@ plugins {
     alias(libraries.plugins.anvil)
 }
 
+apply from: "$rootDir/gradle/common/android.default.gradle"
+
 android {
     namespace 'app.denis55ka.core.serialization'
-
-    compileSdk libraries.versions.compileSdk.get().toInteger()
-
-    defaultConfig {
-        minSdk libraries.versions.minSdk.get().toInteger()
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
-    }
 }
 
 anvil {
@@ -29,7 +16,6 @@ anvil {
 }
 
 dependencies {
-
     api project(':core')
 
     api libraries.kotlinx.serialization

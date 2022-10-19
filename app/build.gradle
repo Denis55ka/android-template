@@ -5,15 +5,14 @@ plugins {
     id 'kotlin-kapt'
 }
 
+apply from: "$rootDir/gradle/common/android.default.gradle"
+apply from: "$rootDir/gradle/common/android.compose.gradle"
+
 android {
     namespace 'app.denis55ka.template'
 
-    compileSdk libraries.versions.compileSdk.get().toInteger()
-
     defaultConfig {
         applicationId namespace
-        minSdk libraries.versions.minSdk.get().toInteger()
-        targetSdk libraries.versions.compileSdk.get().toInteger()
         versionCode 1
         versionName "1.0"
     }
@@ -27,27 +26,9 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
-    }
-
-    buildFeatures {
-        compose true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion libraries.versions.compose.compiler.get()
-    }
 }
 
 dependencies {
-
     implementation project(':core')
     implementation project(':core:network')
     implementation project(':core:ui')

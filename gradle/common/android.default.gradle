@@ -1,0 +1,17 @@
+android {
+    compileSdk libraries.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        minSdk libraries.versions.minSdk.get().toInteger()
+        targetSdk libraries.versions.compileSdk.get().toInteger()
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+    }
+}

@@ -18,10 +18,10 @@ dependencyResolutionManagement {
             version('compileSdk', '33')
             version('minSdk', '28')
 
-            version('android-gradle-plugin', '7.3.0')
+            version('android-gradle-plugin', '7.3.1')
             version('kotlin', '1.7.20')
             version('kotlinx-coroutines', '1.6.4')
-            version('kotlinx-serialization', '1.4.0')
+            version('kotlinx-serialization', '1.4.1')
             version('ktor', '2.1.2')
             version('okhttp', '4.10.0')
             version('dagger', '2.44')
