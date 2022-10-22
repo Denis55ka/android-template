@@ -1,4 +1,4 @@
-package app.denis55ka.main
+package app.denis55ka.main.ui
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

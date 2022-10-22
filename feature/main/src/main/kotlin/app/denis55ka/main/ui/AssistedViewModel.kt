@@ -1,4 +1,4 @@
-package app.denis55ka.main
+package app.denis55ka.main.ui
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
