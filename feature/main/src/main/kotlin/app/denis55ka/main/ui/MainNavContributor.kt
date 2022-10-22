@@ -3,7 +3,7 @@ package app.denis55ka.main.ui
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import app.denis55ka.core.ApplicationComponentScope
-import app.denis55ka.core.ui.navigation.NavContributor
+import app.denis55ka.core.navigation.NavContributor
 import com.squareup.anvil.annotations.ContributesMultibinding
 import javax.inject.Inject
 

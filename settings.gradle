@@ -32,7 +32,6 @@ dependencyResolutionManagement {
             version('androidx-navigation', '2.5.2')
             version('compose', '1.3.0-rc01')
             version('compose-compiler', '1.3.2')
-            version('compose-material', '1.3.0-rc01')
             version('accompanist', '0.26.5-rc')
 
             // Plugins
@@ -71,7 +70,7 @@ dependencyResolutionManagement {
             library('compose-foundation', 'androidx.compose.foundation', 'foundation').versionRef('compose')
             library('compose-material-icons', 'androidx.compose.material', 'material-icons-core').versionRef('compose')
             library('compose-material-icons-extended', 'androidx.compose.material', 'material-icons-extended').versionRef('compose')
-            library('compose-material', 'androidx.compose.material', 'material').versionRef('compose-material')
+            library('compose-material', 'androidx.compose.material', 'material').versionRef('compose')
 
             library('accompanist-pager', 'com.google.accompanist', 'accompanist-pager').versionRef('accompanist')
             library('accompanist-placeholder', 'com.google.accompanist', 'accompanist-placeholder').versionRef('accompanist')
@@ -81,10 +80,11 @@ dependencyResolutionManagement {
     }
 }
 
-include ':app',
-        ':core',
+include ':core',
         ':core:serialization',
         ':core:network',
+        ':core:navigation',
         ':core:ui',
+        ':feature:main:api',
         ':feature:main',
-        ':feature:main:api'
+        ':app'

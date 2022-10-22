@@ -1,3 +1,3 @@
-package app.denis55ka.core.ui.navigation
+package app.denis55ka.core.navigation
 
 abstract class Route(val value: String)

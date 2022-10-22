@@ -1,4 +1,4 @@
-package app.denis55ka.core.ui.navigation
+package app.denis55ka.core.navigation
 
 import androidx.navigation.NavGraphBuilder
 

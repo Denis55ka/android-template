@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -47,5 +48,7 @@ inline fun <reified VM : ViewModel> ComponentActivity.userViewModels(): Lazy<VM>
     viewModels { Components.get<UserViewModelFactory.Dependencies>().viewModelFactory() }
 
 @Composable
-inline fun <reified VM : ViewModel> userViewModel(key: String? = null): VM =
-    viewModel(key = key, factory = Components.get<UserViewModelFactory.Dependencies>().viewModelFactory())
+inline fun <reified VM : ViewModel> userViewModel(key: String? = null): VM {
+    val factory = remember(Components.get<UserViewModelFactory.Dependencies>()::viewModelFactory)
+    return viewModel(key = key, factory = factory)
+}
