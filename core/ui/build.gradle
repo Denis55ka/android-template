@@ -24,6 +24,7 @@ dependencies {
     api libraries.androidx.lifecycle.viewmodel.compose
 
     // Compose
+    api platform(libraries.compose.bom)
     api libraries.compose.ui
     api libraries.compose.ui.tooling
     api libraries.compose.ui.tooling.preview
