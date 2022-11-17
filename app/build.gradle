@@ -30,6 +30,9 @@ android {
 
 dependencies {
     implementation project(':feature:main')
+    implementation project(':feature:feature1')
+    implementation project(':feature:feature2')
+    implementation project(':feature:feature3')
 
     kapt libraries.dagger.compiler
 }

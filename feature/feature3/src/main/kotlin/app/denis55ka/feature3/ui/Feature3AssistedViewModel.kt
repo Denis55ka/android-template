@@ -1,4 +1,4 @@
-package app.denis55ka.main.ui
+package app.denis55ka.feature3.ui
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -10,7 +10,7 @@ import dagger.assisted.AssistedInject
 import io.ktor.client.HttpClient
 import kotlinx.serialization.json.Json
 
-class AssistedViewModel @AssistedInject constructor(
+class Feature3AssistedViewModel @AssistedInject constructor(
     @Assisted private val savedStateHandle: SavedStateHandle,
     private val json: Json,
     private val httpClient: HttpClient,
@@ -19,7 +19,7 @@ class AssistedViewModel @AssistedInject constructor(
     @AssistedFactory
     interface Factory {
 
-        fun create(savedStateHandle: SavedStateHandle): AssistedViewModel
+        fun create(savedStateHandle: SavedStateHandle): Feature3AssistedViewModel
     }
 
     @ContributesTo(UserComponentScope::class)

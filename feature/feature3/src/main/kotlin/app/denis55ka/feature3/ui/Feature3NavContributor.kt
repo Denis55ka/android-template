@@ -1,4 +1,4 @@
-package app.denis55ka.main.ui
+package app.denis55ka.feature3.ui
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavGraphBuilder
@@ -10,8 +10,9 @@ import javax.inject.Inject
 
 @OptIn(ExperimentalAnimationApi::class)
 @ContributesMultibinding(ApplicationComponentScope::class)
-class MainNavContributor @Inject constructor() : NavContributor {
+class Feature3NavContributor @Inject constructor() : NavContributor {
 
-    context(NavGraphBuilder) override fun contribute() =
-        composable(MainScreen().pattern) { MainScreen(it) }
+    context(NavGraphBuilder) override fun contribute() {
+        composable(Feature3Screen.pattern) { Feature3Screen() }
+    }
 }

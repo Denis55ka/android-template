@@ -5,9 +5,10 @@ plugins {
 }
 
 apply from: "$rootDir/gradle/common/android.default.gradle"
+apply from: "$rootDir/gradle/common/android.compose.gradle"
 
 android {
-    namespace 'app.denis55ka.core.navigation'
+    namespace 'app.denis55ka.feature2'
 }
 
 anvil {
@@ -15,8 +16,8 @@ anvil {
 }
 
 dependencies {
-    api project(':core')
-
-    api libraries.androidx.navigation.compose
-    api libraries.accompanist.navigation.animation
+    implementation project(':core:network')
+    implementation project(':core:navigation')
+    implementation project(':core:ui')
+    api project(':feature:feature2:api')
 }
