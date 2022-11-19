@@ -12,5 +12,5 @@ import javax.inject.Inject
 @ContributesMultibinding(ApplicationComponentScope::class)
 class MainViewModel @Inject constructor(
     @MainNavigation
-    val mainNavContributors: @JvmSuppressWildcards Set<NavContributor>
+    val navContributors: @JvmSuppressWildcards Set<NavContributor>
 ) : ViewModel()

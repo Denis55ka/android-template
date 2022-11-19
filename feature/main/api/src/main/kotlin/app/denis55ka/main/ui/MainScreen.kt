@@ -3,7 +3,7 @@ package app.denis55ka.main.ui
 import android.os.Bundle
 import app.denis55ka.core.navigation.Screen
 
-class MainScreen(tab: MainTab? = null) : Screen("main?$ArgTab={tab}", "main?$ArgTab=$tab") {
+class MainScreen(tab: MainTab? = null) : Screen("main?tab={$ArgTab}", "main?tab=$tab") {
 
     companion object {
 

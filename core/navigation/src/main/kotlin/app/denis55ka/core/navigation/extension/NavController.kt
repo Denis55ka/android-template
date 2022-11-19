@@ -3,8 +3,8 @@ package app.denis55ka.core.navigation.extension
 import androidx.navigation.NavController
 import app.denis55ka.core.navigation.Screen
 
-fun NavController.navigateTab(route: String) =
-    navigate(route) {
+fun NavController.navigateTab(screen: Screen) =
+    navigate(screen.route) {
         val startDestinationRoute = graph.startDestinationRoute
         if (startDestinationRoute != null) {
             popUpTo(startDestinationRoute) {

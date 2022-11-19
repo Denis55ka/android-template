@@ -5,6 +5,7 @@ plugins {
 }
 
 apply from: "$rootDir/gradle/common/android.default.gradle"
+apply from: "$rootDir/gradle/common/android.compose.gradle"
 
 android {
     namespace 'app.denis55ka.core.navigation'

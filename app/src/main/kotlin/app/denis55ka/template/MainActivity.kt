@@ -1,11 +1,15 @@
 package app.denis55ka.template
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.core.view.WindowCompat
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
+import androidx.navigation.navOptions
 import app.denis55ka.core.navigation.LocalNavController
 import app.denis55ka.core.navigation.ScreenAnimations
 import app.denis55ka.core.ui.SystemUiController
@@ -19,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainActivityViewModel by applicationViewModels()
 
+    private lateinit var navController: NavHostController
+
     @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 SystemUiController { colors ->
                     setNavigationBarColor(colors.surface, darkIcons = colors.isLight)
                 }
-                val navController = rememberAnimatedNavController()
+                navController = rememberAnimatedNavController()
                 CompositionLocalProvider(
                     LocalNavController provides navController
                 ) {
@@ -44,6 +50,20 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        val deepLink = intent?.data ?: return
+        val startDestination = navController.graph.findStartDestination()
+        if (startDestination.hasDeepLink(deepLink)) {
+            navController.navigate(deepLink, navOptions {
+                popUpTo(startDestination.id)
+                launchSingleTop = true
+            })
+        } else if (navController.graph.hasDeepLink(deepLink)) {
+            navController.navigate(deepLink)
         }
     }
 }
