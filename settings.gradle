@@ -78,6 +78,7 @@ dependencyResolutionManagement {
             library('accompanist-placeholder', 'com.google.accompanist', 'accompanist-placeholder').versionRef('accompanist')
             library('accompanist-systemuicontroller', 'com.google.accompanist', 'accompanist-systemuicontroller').versionRef('accompanist')
             library('accompanist-navigation-animation', 'com.google.accompanist', 'accompanist-navigation-animation').versionRef('accompanist')
+            library('accompanist-navigation-material', 'com.google.accompanist', 'accompanist-navigation-material').versionRef('accompanist')
         }
     }
 }

@@ -20,4 +20,5 @@ dependencies {
 
     api libraries.androidx.navigation.compose
     api libraries.accompanist.navigation.animation
+    api libraries.accompanist.navigation.material
 }
