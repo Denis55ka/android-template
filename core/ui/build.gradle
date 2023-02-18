@@ -32,6 +32,7 @@ dependencies {
     api libraries.compose.material
     api libraries.compose.material.icons
     api libraries.compose.material.icons.extended
+    api libraries.compose.material3
 
     // Accompanist
     api libraries.accompanist.pager
