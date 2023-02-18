@@ -5,12 +5,10 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.navOptions
-import app.denis55ka.core.navigation.LocalNavController
 import app.denis55ka.core.navigation.ScreenAnimations
 import app.denis55ka.core.ui.SystemUiController
 import app.denis55ka.core.ui.theme.Themes
@@ -35,19 +33,15 @@ class MainActivity : AppCompatActivity() {
                     setNavigationBarColor(colors.surface, darkIcons = colors.isLight)
                 }
                 navController = rememberAnimatedNavController()
-                CompositionLocalProvider(
-                    LocalNavController provides navController
+                AnimatedNavHost(
+                    navController,
+                    startDestination = MainScreen().pattern,
+                    enterTransition = { ScreenAnimations.EnterSlide },
+                    exitTransition = { ScreenAnimations.ExitSlide },
+                    popEnterTransition = { ScreenAnimations.PopEnterSlide },
+                    popExitTransition = { ScreenAnimations.PopExitSlide },
                 ) {
-                    AnimatedNavHost(
-                        navController,
-                        startDestination = MainScreen().pattern,
-                        enterTransition = { ScreenAnimations.EnterSlide },
-                        exitTransition = { ScreenAnimations.ExitSlide },
-                        popEnterTransition = { ScreenAnimations.PopEnterSlide },
-                        popExitTransition = { ScreenAnimations.PopExitSlide },
-                    ) {
-                        viewModel.navContributors.forEach { it.contribute() }
-                    }
+                    viewModel.navContributors.forEach { it.contribute(navController) }
                 }
             }
         }

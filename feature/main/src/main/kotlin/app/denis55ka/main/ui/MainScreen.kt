@@ -28,7 +28,7 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun MainScreen(backStackEntry: NavBackStackEntry) {
+fun MainScreen(parentNavController: NavController, backStackEntry: NavBackStackEntry) {
     val navController = rememberAnimatedNavController()
     ArgumentsHandler(navController, backStackEntry.arguments)
     val childBackStackEntry by navController.currentBackStackEntryAsState()
@@ -37,7 +37,7 @@ fun MainScreen(backStackEntry: NavBackStackEntry) {
     Scaffold(
         content = { paddings ->
             AnimatedNavHost(navController, Feature1Screen.pattern, Modifier.padding(paddings)) {
-                viewModel.navContributors.forEach { it.contribute() }
+                viewModel.navContributors.forEach { it.contribute(parentNavController) }
             }
         },
         bottomBar = {

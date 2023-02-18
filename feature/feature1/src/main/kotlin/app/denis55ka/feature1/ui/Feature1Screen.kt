@@ -21,9 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import app.denis55ka.core.navigation.DeepLinkHost
-import app.denis55ka.core.navigation.LocalNavController
 import app.denis55ka.core.navigation.Screen
-import app.denis55ka.core.navigation.extension.navigate
 import app.denis55ka.core.ui.SystemUiController
 import app.denis55ka.core.ui.viewmodel.userViewModel
 import app.denis55ka.feature3.ui.Feature3Screen
@@ -32,8 +30,9 @@ import app.denis55ka.main.ui.MainTab
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun Feature1Screen() {
+fun Feature1Screen(onNavigateFeature2: () -> Unit, onNavigateFeature3: () -> Unit) {
     SystemUiController { statusBarDarkContentEnabled = false }
+    @Suppress("UNUSED_VARIABLE")
     val viewModel: Feature1ViewModel = userViewModel()
     BackdropScaffold(
         modifier = Modifier.statusBarsPadding(),
@@ -49,8 +48,8 @@ fun Feature1Screen() {
                 Alignment.CenterHorizontally
             ) {
                 Text("Feature 1")
-                NavigateButton(MainScreen(MainTab.FEATURE2))
-                NavigateButton(Feature3Screen)
+                NavigateButton(MainScreen(MainTab.FEATURE2), onNavigateFeature2)
+                NavigateButton(Feature3Screen, onNavigateFeature3)
                 DeepLinkButton((DeepLinkHost + MainScreen(MainTab.FEATURE2).route).toUri())
                 DeepLinkButton(Feature3Screen.deepLinks.first().toUri())
             }
@@ -59,11 +58,8 @@ fun Feature1Screen() {
 }
 
 @Composable
-private fun NavigateButton(screen: Screen) {
-    val navController = LocalNavController.current
-    Button(onClick = {
-        navController.navigate(screen)
-    }) {
+private fun NavigateButton(screen: Screen, onNavigate: () -> Unit) {
+    Button(onClick = onNavigate) {
         Text(screen.route)
     }
 }
