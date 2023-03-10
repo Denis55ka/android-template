@@ -24,7 +24,6 @@ dependencies {
     api libraries.androidx.lifecycle.viewmodel.compose
 
     // Compose
-    api platform(libraries.compose.bom)
     api libraries.compose.ui
     api libraries.compose.ui.tooling
     api libraries.compose.ui.tooling.preview
@@ -32,7 +31,6 @@ dependencies {
     api libraries.compose.material
     api libraries.compose.material.icons
     api libraries.compose.material.icons.extended
-    api libraries.compose.material3
 
     // Accompanist
     api libraries.accompanist.pager

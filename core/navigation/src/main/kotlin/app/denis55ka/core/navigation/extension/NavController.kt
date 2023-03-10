@@ -1,23 +1,12 @@
 package app.denis55ka.core.navigation.extension
 
 import androidx.navigation.NavController
-import app.denis55ka.core.navigation.Screen
 
-fun NavController.navigateTab(screen: Screen) =
-    navigate(screen.route) {
-        val startDestinationRoute = graph.startDestinationRoute
-        if (startDestinationRoute != null) {
-            popUpTo(startDestinationRoute) {
-                saveState = true
-            }
+fun NavController.navigateTab(route: String, saveRestore: Boolean = false) =
+    navigate(route) {
+        popUpTo(graph.startDestinationId) {
+            saveState = saveRestore
         }
         launchSingleTop = true
-        restoreState = true
+        restoreState = saveRestore
     }
-
-fun NavController.navigate(screen: Screen) {
-    popBackStack(screen.pattern, inclusive = false)
-    navigate(screen.route) {
-        launchSingleTop = true
-    }
-}

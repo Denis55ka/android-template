@@ -20,8 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import app.denis55ka.core.navigation.DeepLinkHost
-import app.denis55ka.core.navigation.Screen
+import app.denis55ka.core.navigation.DeeplinkFactory
 import app.denis55ka.core.ui.SystemUiController
 import app.denis55ka.core.ui.viewmodel.userViewModel
 import app.denis55ka.feature3.ui.Feature3Screen
@@ -49,18 +48,18 @@ fun Feature1Screen(onNavigateFeature2: () -> Unit, onNavigateFeature3: () -> Uni
             ) {
                 Text("Feature 1")
                 NavigateButton(MainScreen(MainTab.FEATURE2), onNavigateFeature2)
-                NavigateButton(Feature3Screen, onNavigateFeature3)
-                DeepLinkButton((DeepLinkHost + MainScreen(MainTab.FEATURE2).route).toUri())
-                DeepLinkButton(Feature3Screen.deepLinks.first().toUri())
+                NavigateButton(Feature3Screen.route, onNavigateFeature3)
+                DeepLinkButton(DeeplinkFactory.create(MainScreen(MainTab.FEATURE2)).toUri())
+                DeepLinkButton(DeeplinkFactory.create(Feature3Screen.route).toUri())
             }
         }
     )
 }
 
 @Composable
-private fun NavigateButton(screen: Screen, onNavigate: () -> Unit) {
+private fun NavigateButton(route: String, onNavigate: () -> Unit) {
     Button(onClick = onNavigate) {
-        Text(screen.route)
+        Text(route)
     }
 }
 

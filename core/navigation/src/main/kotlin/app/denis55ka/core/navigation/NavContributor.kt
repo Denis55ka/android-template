@@ -5,5 +5,6 @@ import androidx.navigation.NavGraphBuilder
 
 interface NavContributor {
 
-    context(NavGraphBuilder) fun contribute(navController: NavController)
+    context(NavGraphBuilder)
+    fun contribute(navController: NavController)
 }

@@ -1,9 +1,6 @@
 package app.denis55ka.core.navigation
 
-abstract class Screen(
-    val pattern: String,
-    val route: String = pattern,
-    val deepLinks: List<String> = listOf(DeepLinkHost + pattern)
-)
+abstract class Screen {
 
-const val DeepLinkHost = "denis55ka://template/"
+    abstract val route: String
+}

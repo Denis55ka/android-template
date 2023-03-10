@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 navController = rememberAnimatedNavController()
                 AnimatedNavHost(
                     navController,
-                    startDestination = MainScreen().pattern,
+                    startDestination = MainScreen.route,
                     enterTransition = { ScreenAnimations.EnterSlide },
                     exitTransition = { ScreenAnimations.ExitSlide },
                     popEnterTransition = { ScreenAnimations.PopEnterSlide },

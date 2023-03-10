@@ -36,7 +36,7 @@ fun MainScreen(parentNavController: NavController, backStackEntry: NavBackStackE
     val viewModel: MainViewModel = applicationViewModel()
     Scaffold(
         content = { paddings ->
-            AnimatedNavHost(navController, Feature1Screen.pattern, Modifier.padding(paddings)) {
+            AnimatedNavHost(navController, Feature1Screen.route, Modifier.padding(paddings)) {
                 viewModel.navContributors.forEach { it.contribute(parentNavController) }
             }
         },
@@ -46,13 +46,13 @@ fun MainScreen(parentNavController: NavController, backStackEntry: NavBackStackE
                 backgroundColor = MaterialTheme.colors.surface,
             ) {
                 BottomNavigationItem(
-                    selected = childRoute == Feature1Screen.pattern,
-                    onClick = { navController.navigateTab(Feature1Screen) },
+                    selected = childRoute == Feature1Screen.route,
+                    onClick = { navController.navigateTab(Feature1Screen.route, saveRestore = true) },
                     icon = { Icon(Icons.Rounded.LibraryMusic, contentDescription = null) },
                 )
                 BottomNavigationItem(
-                    selected = childRoute == Feature2Screen.pattern,
-                    onClick = { navController.navigateTab(Feature2Screen) },
+                    selected = childRoute == Feature2Screen.route,
+                    onClick = { navController.navigateTab(Feature2Screen.route, saveRestore = true) },
                     icon = { Icon(Icons.Rounded.VideoLibrary, contentDescription = null) },
                 )
             }
@@ -67,8 +67,8 @@ private fun ArgumentsHandler(navController: NavController, arguments: Bundle?) {
         val tab = MainScreen.getTabArg(arguments)
         if (tab != null) {
             when (tab) {
-                MainTab.FEATURE1 -> navController.navigateTab(Feature1Screen)
-                MainTab.FEATURE2 -> navController.navigateTab(Feature2Screen)
+                MainTab.FEATURE1 -> navController.navigateTab(Feature1Screen.route, saveRestore = true)
+                MainTab.FEATURE2 -> navController.navigateTab(Feature2Screen.route, saveRestore = true)
             }
             arguments.remove(MainScreen.ArgTab)
         }
