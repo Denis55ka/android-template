@@ -1,6 +1,5 @@
 package app.denis55ka.main.ui
 
-import android.os.Bundle
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -15,6 +14,7 @@ import androidx.compose.material.icons.rounded.VideoLibrary
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
@@ -30,10 +30,10 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 @Composable
 fun MainScreen(parentNavController: NavController, backStackEntry: NavBackStackEntry) {
     val navController = rememberAnimatedNavController()
-    ArgumentsHandler(navController, backStackEntry.arguments)
     val childBackStackEntry by navController.currentBackStackEntryAsState()
     val childRoute = childBackStackEntry?.destination?.route
     val viewModel: MainViewModel = applicationViewModel()
+    NavigationHandler(backStackEntry) { route -> navController.navigateTab(route, saveRestore = true) }
     Scaffold(
         content = { paddings ->
             AnimatedNavHost(navController, Feature1Screen.route, Modifier.padding(paddings)) {
@@ -61,16 +61,17 @@ fun MainScreen(parentNavController: NavController, backStackEntry: NavBackStackE
 }
 
 @Composable
-private fun ArgumentsHandler(navController: NavController, arguments: Bundle?) {
-    arguments ?: return
-    LaunchedEffect(arguments) {
-        val tab = MainScreen.getTabArg(arguments)
+private fun NavigationHandler(backStackEntry: NavBackStackEntry, onNavigate: (route: String) -> Unit) {
+    val arguments = backStackEntry.arguments ?: return
+    val bundle = rememberSaveable(backStackEntry) { arguments }
+    LaunchedEffect(bundle) {
+        val tab = MainScreen.getTabArg(bundle)
         if (tab != null) {
             when (tab) {
-                MainTab.FEATURE1 -> navController.navigateTab(Feature1Screen.route, saveRestore = true)
-                MainTab.FEATURE2 -> navController.navigateTab(Feature2Screen.route, saveRestore = true)
+                MainTab.FEATURE1 -> onNavigate(Feature1Screen.route)
+                MainTab.FEATURE2 -> onNavigate(Feature2Screen.route)
             }
-            arguments.remove(MainScreen.ArgTab)
+            bundle.remove(MainScreen.ArgTab)
         }
     }
 }
