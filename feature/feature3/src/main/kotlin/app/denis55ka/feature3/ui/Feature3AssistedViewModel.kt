@@ -2,7 +2,7 @@ package app.denis55ka.feature3.ui
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import app.denis55ka.core.UserComponentScope
+import app.denis55ka.core.ApplicationComponentScope
 import com.squareup.anvil.annotations.ContributesTo
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -22,7 +22,7 @@ class Feature3AssistedViewModel @AssistedInject constructor(
         fun create(savedStateHandle: SavedStateHandle): Feature3AssistedViewModel
     }
 
-    @ContributesTo(UserComponentScope::class)
+    @ContributesTo(ApplicationComponentScope::class)
     interface Dependencies {
 
         fun factory(): Factory

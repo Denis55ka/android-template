@@ -11,4 +11,8 @@ interface NavigationModule {
 
     @Multibinds
     fun navContributors(): Set<NavContributor>
+
+    @Multibinds
+    @MainNavigation
+    fun mainNavContributors(): Set<NavContributor>
 }

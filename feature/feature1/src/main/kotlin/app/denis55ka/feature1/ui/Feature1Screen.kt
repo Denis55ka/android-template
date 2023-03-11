@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import app.denis55ka.core.navigation.DeeplinkFactory
 import app.denis55ka.core.ui.SystemUiController
-import app.denis55ka.core.ui.viewmodel.userViewModel
+import app.denis55ka.core.ui.viewmodel.applicationViewModel
 import app.denis55ka.feature3.ui.Feature3Screen
 import app.denis55ka.main.ui.MainScreen
 import app.denis55ka.main.ui.MainTab
@@ -32,7 +32,7 @@ import app.denis55ka.main.ui.MainTab
 fun Feature1Screen(onNavigateFeature2: () -> Unit, onNavigateFeature3: () -> Unit) {
     SystemUiController { statusBarDarkContentEnabled = false }
     @Suppress("UNUSED_VARIABLE")
-    val viewModel: Feature1ViewModel = userViewModel()
+    val viewModel: Feature1ViewModel = applicationViewModel()
     BackdropScaffold(
         modifier = Modifier.statusBarsPadding(),
         appBar = { /* TODO */ },

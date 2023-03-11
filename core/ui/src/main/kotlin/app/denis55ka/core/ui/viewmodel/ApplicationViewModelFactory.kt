@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.denis55ka.core.ApplicationComponentScope
-import app.denis55ka.core.Components
+import app.denis55ka.core.Dependencies
 import com.squareup.anvil.annotations.ContributesTo
 import javax.inject.Inject
 import javax.inject.Provider
@@ -35,10 +35,10 @@ class ApplicationViewModelFactory @Inject constructor(
 }
 
 inline fun <reified VM : ViewModel> ComponentActivity.applicationViewModels(): Lazy<VM> =
-    viewModels { Components.get<ApplicationViewModelFactory.Dependencies>().viewModelFactory() }
+    viewModels { Dependencies.get<ApplicationViewModelFactory.Dependencies>().viewModelFactory() }
 
 @Composable
 inline fun <reified VM : ViewModel> applicationViewModel(key: String? = null): VM {
-    val factory = remember(Components.get<ApplicationViewModelFactory.Dependencies>()::viewModelFactory)
+    val factory = remember { Dependencies.get<ApplicationViewModelFactory.Dependencies>().viewModelFactory() }
     return viewModel(key = key, factory = factory)
 }
