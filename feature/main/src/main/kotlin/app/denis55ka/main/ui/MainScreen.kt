@@ -1,6 +1,7 @@
 package app.denis55ka.main.ui
 
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
@@ -16,6 +17,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -42,8 +45,11 @@ fun MainScreen(parentNavController: NavController, backStackEntry: NavBackStackE
         },
         bottomBar = {
             BottomNavigation(
-                Modifier.navigationBarsPadding(),
-                backgroundColor = MaterialTheme.colors.surface,
+                Modifier
+                    .background(MaterialTheme.colors.surface)
+                    .navigationBarsPadding(),
+                backgroundColor = Color.Unspecified,
+                elevation = 0.dp,
             ) {
                 BottomNavigationItem(
                     selected = childRoute == Feature1Screen.route,

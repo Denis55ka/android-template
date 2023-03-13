@@ -10,7 +10,6 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.navOptions
 import app.denis55ka.core.navigation.ScreenAnimations
-import app.denis55ka.core.ui.SystemUiController
 import app.denis55ka.core.ui.theme.Themes
 import app.denis55ka.core.ui.viewmodel.applicationViewModels
 import app.denis55ka.main.ui.MainScreen
@@ -29,9 +28,6 @@ class MainActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             Themes.Main {
-                SystemUiController { colors ->
-                    setNavigationBarColor(colors.surface, darkIcons = colors.isLight)
-                }
                 navController = rememberAnimatedNavController()
                 AnimatedNavHost(
                     navController,

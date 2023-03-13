@@ -8,11 +8,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import app.denis55ka.core.ui.SystemUiController
 
 @Composable
 fun Feature2Screen() {
-    SystemUiController { colors -> statusBarDarkContentEnabled = colors.isLight }
     Scaffold { paddings ->
         Box(
             Modifier
