@@ -5,18 +5,20 @@ plugins {
     alias(libraries.plugins.anvil)
 }
 
-apply from: "$rootDir/gradle/common/android.default.gradle"
+apply {
+    from("$rootDir/gradle/common/android.default.gradle")
+}
 
 android {
-    namespace 'app.denis55ka.core.serialization'
+    namespace = "app.denis55ka.core.serialization"
 }
 
 anvil {
-    generateDaggerFactories = true
+    generateDaggerFactories.set(true)
 }
 
 dependencies {
-    api project(':core')
+    api(project(":core"))
 
-    api libraries.kotlinx.serialization
+    api(libraries.kotlinx.serialization)
 }

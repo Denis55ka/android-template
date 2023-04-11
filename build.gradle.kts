@@ -1,5 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libraries.plugins.android.application) apply false
@@ -10,10 +10,10 @@ plugins {
 }
 
 allprojects {
-    tasks.withType(KotlinCompile).configureEach {
+    tasks.withType<KotlinCompile>().configureEach {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
-            freeCompilerArgs.set(['-Xcontext-receivers'])
+            freeCompilerArgs.addAll("-Xcontext-receivers")
         }
     }
 }

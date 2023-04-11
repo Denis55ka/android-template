@@ -1,5 +1,6 @@
 package app.denis55ka.main.ui
 
+import android.os.Bundle
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -68,16 +69,15 @@ fun MainScreen(parentNavController: NavController, backStackEntry: NavBackStackE
 
 @Composable
 private fun NavigationHandler(backStackEntry: NavBackStackEntry, onNavigate: (route: String) -> Unit) {
-    val arguments = backStackEntry.arguments ?: return
-    val bundle = rememberSaveable(backStackEntry) { arguments }
-    LaunchedEffect(bundle) {
-        val tab = MainScreen.getTabArg(bundle)
+    val arguments = rememberSaveable(backStackEntry, key = backStackEntry.toString()) { backStackEntry.arguments ?: Bundle.EMPTY }
+    LaunchedEffect(backStackEntry) {
+        val tab = MainScreen.getTabArg(arguments)
         if (tab != null) {
             when (tab) {
                 MainTab.FEATURE1 -> onNavigate(Feature1Screen.route)
                 MainTab.FEATURE2 -> onNavigate(Feature2Screen.route)
             }
-            bundle.remove(MainScreen.ArgTab)
+            arguments.remove(MainScreen.ArgTab)
         }
     }
 }
