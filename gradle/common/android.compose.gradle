@@ -4,6 +4,6 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion libraries.versions.compose.compiler.get()
+        kotlinCompilerExtensionVersion libraries.versions.androidx.compose.compiler.get()
     }
 }

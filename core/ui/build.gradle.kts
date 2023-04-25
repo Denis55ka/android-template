@@ -26,14 +26,14 @@ dependencies {
     api(libraries.androidx.lifecycle.viewmodel.compose)
 
     // Compose
-    api(platform(libraries.compose.bom))
-    api(libraries.compose.ui)
-    api(libraries.compose.ui.tooling)
-    api(libraries.compose.ui.tooling.preview)
-    api(libraries.compose.foundation)
-    api(libraries.compose.material)
-    api(libraries.compose.material.icons)
-    api(libraries.compose.material.icons.extended)
+    api(platform(libraries.androidx.compose.bom))
+    api(libraries.androidx.compose.ui)
+    api(libraries.androidx.compose.ui.tooling)
+    api(libraries.androidx.compose.ui.tooling.preview)
+    api(libraries.androidx.compose.foundation)
+    api(libraries.androidx.compose.material)
+    api(libraries.androidx.compose.material.icons.core)
+    api(libraries.androidx.compose.material.icons.extended)
 
     // Accompanist
     api(libraries.accompanist.placeholder)

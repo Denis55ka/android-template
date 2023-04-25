@@ -10,6 +10,9 @@ apply {
 
 android {
     namespace = "app.denis55ka.core.network"
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 anvil {
