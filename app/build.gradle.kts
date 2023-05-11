@@ -30,12 +30,6 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
-
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/versions/**"
-        }
-    }
 }
 
 dependencies {
