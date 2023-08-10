@@ -14,6 +14,7 @@ fun SystemUi(
     val systemUiController = rememberSystemUiController()
     val colors = MaterialTheme.colors
     DisposableEffect(Unit) {
+        systemUiController.isNavigationBarContrastEnforced = false
         systemUiController.block(colors)
         onDispose {
             systemUiController.systemBarsDarkContentEnabled = colors.isLight

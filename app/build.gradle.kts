@@ -33,7 +33,10 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:main"))
+    implementation(project(":core:network"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:ui"))
+
     implementation(project(":feature:feature1"))
     implementation(project(":feature:feature2"))
     implementation(project(":feature:feature3"))

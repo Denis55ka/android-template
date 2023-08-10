@@ -21,7 +21,8 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:navigation"))
     implementation(project(":core:ui"))
-    api(project(":feature:main:api"))
+
     api(project(":feature:feature1:api"))
+    api(project(":feature:feature2:api"))
     api(project(":feature:feature3:api"))
 }

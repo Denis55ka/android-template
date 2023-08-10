@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -21,7 +22,7 @@ internal fun Feature3Screen(onNavigateFeature2: () -> Unit) {
     val viewModel: Feature3AssistedViewModel = viewModel {
         Dependencies.get<Feature3AssistedViewModel.Dependencies>().factory().create(createSavedStateHandle())
     }
-    Scaffold { paddings ->
+    Scaffold(Modifier.shadow(16.dp)) { paddings ->
         Column(
             Modifier
                 .fillMaxSize()

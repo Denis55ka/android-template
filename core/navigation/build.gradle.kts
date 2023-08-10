@@ -21,5 +21,4 @@ dependencies {
     api(project(":core"))
 
     api(libraries.androidx.navigation.compose)
-    api(libraries.accompanist.navigation.animation)
 }

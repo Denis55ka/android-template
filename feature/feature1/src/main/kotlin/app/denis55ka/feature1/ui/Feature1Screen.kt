@@ -16,6 +16,7 @@ import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -23,9 +24,8 @@ import androidx.core.net.toUri
 import app.denis55ka.core.navigation.DeeplinkFactory
 import app.denis55ka.core.ui.SystemUi
 import app.denis55ka.core.ui.viewmodel.applicationViewModel
+import app.denis55ka.feature2.ui.Feature2Screen
 import app.denis55ka.feature3.ui.Feature3Screen
-import app.denis55ka.main.ui.MainScreen
-import app.denis55ka.main.ui.MainTab
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -34,7 +34,9 @@ fun Feature1Screen(onNavigateFeature2: () -> Unit, onNavigateFeature3: () -> Uni
     @Suppress("UNUSED_VARIABLE")
     val viewModel: Feature1ViewModel = applicationViewModel()
     BackdropScaffold(
-        modifier = Modifier.statusBarsPadding(),
+        modifier = Modifier
+            .statusBarsPadding()
+            .shadow(16.dp),
         appBar = { /* TODO */ },
         backLayerBackgroundColor = Color.Black,
         backLayerContent = { /* TODO */ },
@@ -47,9 +49,9 @@ fun Feature1Screen(onNavigateFeature2: () -> Unit, onNavigateFeature3: () -> Uni
                 Alignment.CenterHorizontally
             ) {
                 Text("Feature 1")
-                NavigateButton(MainScreen(MainTab.FEATURE2), onNavigateFeature2)
+                NavigateButton(Feature2Screen.route, onNavigateFeature2)
                 NavigateButton(Feature3Screen.route, onNavigateFeature3)
-                DeepLinkButton(DeeplinkFactory.create(MainScreen(MainTab.FEATURE2)).toUri())
+                DeepLinkButton(DeeplinkFactory.create(Feature2Screen.route).toUri())
                 DeepLinkButton(DeeplinkFactory.create(Feature3Screen.route).toUri())
             }
         }
