@@ -6,6 +6,15 @@ pluginManagement {
     }
 }
 
+plugins {
+    id("com.android.settings") version('8.2.0-alpha15')
+}
+
+android {
+    compileSdk 34
+    minSdk 28
+}
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {

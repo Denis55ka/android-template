@@ -8,7 +8,7 @@ plugins {
 }
 
 apply {
-    from("$rootDir/gradle/common/android.default.gradle")
+    from("$rootDir/gradle/common/kotlin.gradle")
     from("$rootDir/gradle/common/android.compose.gradle")
 }
 
@@ -16,6 +16,7 @@ android {
     namespace = "app.denis55ka.template"
 
     defaultConfig {
+        targetSdk = 34
         applicationId = namespace
         versionCode = 1
         versionName = "1.0"

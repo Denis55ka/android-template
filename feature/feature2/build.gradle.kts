@@ -5,7 +5,7 @@ plugins {
 }
 
 apply {
-    from("$rootDir/gradle/common/android.default.gradle")
+    from("$rootDir/gradle/common/kotlin.gradle")
     from("$rootDir/gradle/common/android.compose.gradle")
 }
 
