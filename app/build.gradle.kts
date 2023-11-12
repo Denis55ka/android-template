@@ -4,6 +4,7 @@ plugins {
     alias(libraries.plugins.android.application)
     alias(libraries.plugins.kotlin.android)
     alias(libraries.plugins.anvil)
+    alias(libraries.plugins.google.ksp)
     id("kotlin-kapt")
 }
 
