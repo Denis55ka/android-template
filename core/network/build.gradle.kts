@@ -1,7 +1,7 @@
 plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
-    id("kotlin-kapt")
+    alias(libraries.plugins.google.ksp)
 }
 
 apply {
@@ -29,5 +29,5 @@ dependencies {
     api(libraries.okhttp)
     implementation(libraries.okhttp.logging)
 
-    kapt(libraries.dagger.compiler)
+    ksp(libraries.dagger.compiler)
 }

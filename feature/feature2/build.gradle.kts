@@ -1,7 +1,7 @@
 plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
-    id("kotlin-kapt")
+    alias(libraries.plugins.google.ksp)
 }
 
 apply {
@@ -17,7 +17,8 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:navigation"))
     implementation(project(":core:ui"))
+
     api(project(":feature:feature2:api"))
 
-    kapt(libraries.dagger.compiler)
+    ksp(libraries.dagger.compiler)
 }

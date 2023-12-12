@@ -2,7 +2,7 @@ plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
     alias(libraries.plugins.kotlin.serialization)
-    id("kotlin-kapt")
+    alias(libraries.plugins.google.ksp)
 }
 
 apply {
@@ -18,5 +18,5 @@ dependencies {
 
     api(libraries.kotlinx.serialization)
 
-    kapt(libraries.dagger.compiler)
+    ksp(libraries.dagger.compiler)
 }

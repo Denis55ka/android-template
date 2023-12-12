@@ -4,7 +4,6 @@ plugins {
     alias(libraries.plugins.android.application)
     alias(libraries.plugins.kotlin.android)
     alias(libraries.plugins.google.ksp)
-    id("kotlin-kapt")
 }
 
 apply {
@@ -42,5 +41,5 @@ dependencies {
     implementation(project(":feature:feature2"))
     implementation(project(":feature:feature3"))
 
-    kapt(libraries.dagger.compiler)
+    ksp(libraries.dagger.compiler)
 }

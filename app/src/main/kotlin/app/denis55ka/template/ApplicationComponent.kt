@@ -16,17 +16,17 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
-        NetworkModule::class,
         SerializationModule::class,
+        NetworkModule::class,
         NavigationModule::class,
-        ApplicationModule::class,
         FeatureModule::class,
+        ApplicationModule::class,
     ]
 )
 interface ApplicationComponent :
     CoreDependencies,
-    NetworkDependencies,
     SerializationDependencies,
+    NetworkDependencies,
     CoreUiDependencies,
     Feature3Dependencies {
 

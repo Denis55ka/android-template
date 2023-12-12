@@ -1,7 +1,7 @@
 plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
-    id("kotlin-kapt")
+    alias(libraries.plugins.google.ksp)
 }
 
 apply {
@@ -18,5 +18,5 @@ dependencies {
 
     api(libraries.androidx.navigation.compose)
 
-    kapt(libraries.dagger.compiler)
+    ksp(libraries.dagger.compiler)
 }
