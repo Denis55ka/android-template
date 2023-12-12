@@ -8,9 +8,8 @@ import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
-import app.denis55ka.core.ApplicationComponentScope
 import app.denis55ka.core.Dependencies
-import com.squareup.anvil.annotations.ContributesTo
+import app.denis55ka.core.ui.CoreUiDependencies
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -26,19 +25,13 @@ class ApplicationViewModelFactory @Inject constructor(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T = requireNotNull(creators[modelClass]?.get() as? T)
-
-    @ContributesTo(ApplicationComponentScope::class)
-    interface Dependencies {
-
-        fun viewModelFactory(): ApplicationViewModelFactory
-    }
 }
 
 inline fun <reified VM : ViewModel> ComponentActivity.applicationViewModels(): Lazy<VM> =
-    viewModels { Dependencies.get<ApplicationViewModelFactory.Dependencies>().viewModelFactory() }
+    viewModels { Dependencies.get<CoreUiDependencies>().applicationViewModelFactory() }
 
 @Composable
 inline fun <reified VM : ViewModel> applicationViewModel(key: String? = null): VM {
-    val factory = remember { Dependencies.get<ApplicationViewModelFactory.Dependencies>().viewModelFactory() }
+    val factory = remember { Dependencies.get<CoreUiDependencies>().applicationViewModelFactory() }
     return viewModel(key = key, factory = factory)
 }

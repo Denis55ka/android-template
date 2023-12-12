@@ -1,7 +1,6 @@
 plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
-    alias(libraries.plugins.anvil)
 }
 
 apply {
@@ -10,10 +9,6 @@ apply {
 
 android {
     namespace = "app.denis55ka.core"
-}
-
-anvil {
-    generateDaggerFactories.set(true)
 }
 
 dependencies {

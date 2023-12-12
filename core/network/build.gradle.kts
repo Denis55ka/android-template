@@ -1,7 +1,7 @@
 plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
-    alias(libraries.plugins.anvil)
+    id("kotlin-kapt")
 }
 
 apply {
@@ -13,10 +13,6 @@ android {
     buildFeatures {
         buildConfig = true
     }
-}
-
-anvil {
-    generateDaggerFactories.set(true)
 }
 
 dependencies {
@@ -32,4 +28,6 @@ dependencies {
     // OkHttp
     api(libraries.okhttp)
     implementation(libraries.okhttp.logging)
+
+    kapt(libraries.dagger.compiler)
 }

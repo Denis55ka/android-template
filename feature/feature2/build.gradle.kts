@@ -1,7 +1,7 @@
 plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
-    alias(libraries.plugins.anvil)
+    id("kotlin-kapt")
 }
 
 apply {
@@ -13,13 +13,11 @@ android {
     namespace = "app.denis55ka.feature2"
 }
 
-anvil {
-    generateDaggerFactories.set(true)
-}
-
 dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:navigation"))
     implementation(project(":core:ui"))
     api(project(":feature:feature2:api"))
+
+    kapt(libraries.dagger.compiler)
 }

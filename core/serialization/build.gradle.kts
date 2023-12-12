@@ -2,7 +2,7 @@ plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
     alias(libraries.plugins.kotlin.serialization)
-    alias(libraries.plugins.anvil)
+    id("kotlin-kapt")
 }
 
 apply {
@@ -13,12 +13,10 @@ android {
     namespace = "app.denis55ka.core.serialization"
 }
 
-anvil {
-    generateDaggerFactories.set(true)
-}
-
 dependencies {
     api(project(":core"))
 
     api(libraries.kotlinx.serialization)
+
+    kapt(libraries.dagger.compiler)
 }

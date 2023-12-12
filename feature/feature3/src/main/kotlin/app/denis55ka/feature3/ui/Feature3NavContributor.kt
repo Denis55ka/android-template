@@ -4,15 +4,12 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navDeepLink
-import app.denis55ka.core.ApplicationComponentScope
 import app.denis55ka.core.navigation.DeeplinkFactory
 import app.denis55ka.core.navigation.NavContributor
 import app.denis55ka.core.navigation.extension.navigateTab
 import app.denis55ka.feature2.ui.Feature2Screen
-import com.squareup.anvil.annotations.ContributesMultibinding
 import javax.inject.Inject
 
-@ContributesMultibinding(ApplicationComponentScope::class)
 class Feature3NavContributor @Inject constructor() : NavContributor {
 
     context(NavGraphBuilder)

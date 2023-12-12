@@ -1,7 +1,7 @@
 plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
-    alias(libraries.plugins.anvil)
+    id("kotlin-kapt")
 }
 
 apply {
@@ -13,12 +13,10 @@ android {
     namespace = "app.denis55ka.core.navigation"
 }
 
-anvil {
-    generateDaggerFactories.set(true)
-}
-
 dependencies {
     api(project(":core"))
 
     api(libraries.androidx.navigation.compose)
+
+    kapt(libraries.dagger.compiler)
 }

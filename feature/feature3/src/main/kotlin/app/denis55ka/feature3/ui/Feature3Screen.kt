@@ -15,12 +15,13 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.denis55ka.core.Dependencies
+import app.denis55ka.feature3.Feature3Dependencies
 
 @Composable
 internal fun Feature3Screen(onNavigateFeature2: () -> Unit) {
     @Suppress("UNUSED_VARIABLE")
     val viewModel: Feature3AssistedViewModel = viewModel {
-        Dependencies.get<Feature3AssistedViewModel.Dependencies>().factory().create(createSavedStateHandle())
+        Dependencies.get<Feature3Dependencies>().feature3ViewModelFactory.create(createSavedStateHandle())
     }
     Scaffold(Modifier.shadow(16.dp)) { paddings ->
         Column(

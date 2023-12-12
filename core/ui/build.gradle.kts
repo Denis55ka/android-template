@@ -1,7 +1,7 @@
 plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
-    alias(libraries.plugins.anvil)
+    id("kotlin-kapt")
 }
 
 apply {
@@ -11,10 +11,6 @@ apply {
 
 android {
     namespace = "app.denis55ka.core.ui"
-}
-
-anvil {
-    generateDaggerFactories.set(true)
 }
 
 dependencies {
@@ -38,4 +34,6 @@ dependencies {
     // Accompanist
     api(libraries.accompanist.placeholder)
     api(libraries.accompanist.systemuicontroller)
+
+    kapt(libraries.dagger.compiler)
 }

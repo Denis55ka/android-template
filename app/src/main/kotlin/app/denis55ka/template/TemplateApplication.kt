@@ -8,8 +8,6 @@ class TemplateApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Dependencies += DaggerApplicationComponent.builder()
-            .application(this)
-            .build()
+        Dependencies += DaggerApplicationComponent.factory().create(this)
     }
 }
