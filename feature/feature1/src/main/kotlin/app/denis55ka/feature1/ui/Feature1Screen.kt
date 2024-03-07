@@ -2,6 +2,7 @@ package app.denis55ka.feature1.ui
 
 import android.content.Intent
 import android.net.Uri
+import androidx.activity.SystemBarStyle
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,11 +10,11 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.material.BackdropScaffold
 import androidx.compose.material.Button
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -27,10 +28,11 @@ import app.denis55ka.core.ui.viewmodel.applicationViewModel
 import app.denis55ka.feature2.ui.Feature2Screen
 import app.denis55ka.feature3.ui.Feature3Screen
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun Feature1Screen(onNavigateFeature2: () -> Unit, onNavigateFeature3: () -> Unit) {
-    SystemUi { statusBarDarkContentEnabled = false }
+    SystemUi(
+        statusBarStyle = remember { SystemBarStyle.dark(android.graphics.Color.TRANSPARENT) }
+    )
     @Suppress("UNUSED_VARIABLE")
     val viewModel: Feature1ViewModel = applicationViewModel()
     BackdropScaffold(

@@ -20,6 +20,7 @@ dependencies {
     api(libraries.androidx.appcompat)
     api(libraries.androidx.activity.compose)
     api(libraries.androidx.lifecycle.viewmodel.compose)
+    api(libraries.androidx.lifecycle.runtime.compose)
 
     // Compose
     api(platform(libraries.androidx.compose.bom))
@@ -33,7 +34,6 @@ dependencies {
 
     // Accompanist
     api(libraries.accompanist.placeholder)
-    api(libraries.accompanist.systemuicontroller)
 
     ksp(libraries.dagger.compiler)
 }
