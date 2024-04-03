@@ -7,7 +7,7 @@ pluginManagement {
 }
 
 plugins {
-    id("com.android.settings") version('8.4.0-alpha13')
+    id("com.android.settings") version('8.5.0-alpha03')
 }
 
 android {
@@ -29,16 +29,18 @@ dependencyResolutionManagement {
 }
 
 include(
-    ":core",
-    ":core:serialization",
-    ":core:network",
-    ":core:navigation",
-    ":core:ui",
-    ":feature:feature1:api",
-    ":feature:feature1",
-    ":feature:feature2:api",
-    ":feature:feature2",
-    ":feature:feature3:api",
-    ":feature:feature3",
-    ":app"
+        ":core",
+        ":core:serialization",
+        ":core:network",
+        ":core:navigation",
+        ':core:navigation:api',
+        ":core:viewmodel",
+        ":core:ui",
+        ":feature:feature1:api",
+        ":feature:feature1",
+        ":feature:feature2:api",
+        ":feature:feature2",
+        ":feature:feature3:api",
+        ":feature:feature3",
+        ":app"
 )

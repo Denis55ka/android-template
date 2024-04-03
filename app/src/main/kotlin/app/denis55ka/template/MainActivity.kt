@@ -35,9 +35,9 @@ import androidx.navigation.navOptions
 import app.denis55ka.core.navigation.ScreenAnimations
 import app.denis55ka.core.navigation.extension.navigateTab
 import app.denis55ka.core.ui.theme.Themes
-import app.denis55ka.core.ui.viewmodel.applicationViewModel
-import app.denis55ka.feature1.ui.Feature1Screen
-import app.denis55ka.feature2.ui.Feature2Screen
+import app.denis55ka.core.viewmodel.applicationViewModel
+import app.denis55ka.feature1.ui.Feature1Destination
+import app.denis55ka.feature2.ui.Feature2Destination
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,7 +64,7 @@ private fun Content(navControllerHolder: NavControllerHolder) {
         NavHost(
             navController,
             modifier = Modifier.fillMaxSize(),
-            startDestination = Feature1Screen.route,
+            startDestination = Feature1Destination.route,
             enterTransition = { ScreenAnimations.EnterSlide },
             exitTransition = { ScreenAnimations.ExitSlide },
             popEnterTransition = { ScreenAnimations.PopEnterSlide },
@@ -72,7 +72,7 @@ private fun Content(navControllerHolder: NavControllerHolder) {
         ) {
             viewModel.navContributors.forEach { it.contribute(navController) }
         }
-        val visible = childRoute == Feature1Screen.route || childRoute == Feature2Screen.route
+        val visible = childRoute == Feature1Destination.route || childRoute == Feature2Destination.route
         AnimatedVisibility(
             visible,
             Modifier.align(Alignment.BottomCenter),

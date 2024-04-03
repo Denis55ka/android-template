@@ -1,7 +1,7 @@
 package app.denis55ka.template
 
 import androidx.lifecycle.ViewModel
-import app.denis55ka.core.ui.viewmodel.ViewModelKey
+import app.denis55ka.core.viewmodel.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

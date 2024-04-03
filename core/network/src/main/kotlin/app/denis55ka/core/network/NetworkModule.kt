@@ -37,9 +37,9 @@ interface NetworkModule {
                 .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS)
                 .apply {
-                    if (BuildConfig.DEBUG) {
-                        addInterceptor(HttpLoggingInterceptor(HttpLogger).also { it.level = HttpLoggingInterceptor.Level.BODY })
-                    }
+//                    if (BuildConfig.DEBUG) {
+//                        addInterceptor(HttpLoggingInterceptor(HttpLogger).also { it.level = HttpLoggingInterceptor.Level.BODY })
+//                    }
                 }
                 .build()
     }

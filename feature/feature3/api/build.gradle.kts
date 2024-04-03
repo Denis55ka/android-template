@@ -1,16 +1,11 @@
 plugins {
-    alias(libraries.plugins.android.library)
-    alias(libraries.plugins.kotlin.android)
+    alias(libraries.plugins.kotlin.jvm)
 }
 
 apply {
     from("$rootDir/gradle/common/kotlin.gradle")
 }
 
-android {
-    namespace = "app.denis55ka.feature3.api"
-}
-
 dependencies {
-    implementation(project(":core:navigation"))
+    implementation(project(":core:navigation:api"))
 }

@@ -5,7 +5,3 @@ plugins {
 apply {
     from("$rootDir/gradle/common/kotlin.gradle")
 }
-
-dependencies {
-    implementation(project(":core:navigation:api"))
-}

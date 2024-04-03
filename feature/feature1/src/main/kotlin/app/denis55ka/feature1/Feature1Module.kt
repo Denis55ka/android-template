@@ -2,7 +2,7 @@ package app.denis55ka.feature1
 
 import androidx.lifecycle.ViewModel
 import app.denis55ka.core.navigation.NavContributor
-import app.denis55ka.core.ui.viewmodel.ViewModelKey
+import app.denis55ka.core.viewmodel.ViewModelKey
 import app.denis55ka.feature1.ui.Feature1NavContributor
 import app.denis55ka.feature1.ui.Feature1ViewModel
 import dagger.Binds

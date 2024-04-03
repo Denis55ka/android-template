@@ -10,14 +10,16 @@ apply {
 }
 
 android {
-    namespace = "app.denis55ka.core.navigation"
+    namespace = "app.denis55ka.core.viewmodel"
 }
 
 dependencies {
     api(project(":core"))
-    api(project(":core:navigation:api"))
 
-    api(libraries.androidx.navigation.compose)
+    // AndroidX
+    api(libraries.androidx.activity.compose)
+    api(libraries.androidx.lifecycle.viewmodel.compose)
 
+    implementation(libraries.dagger)
     ksp(libraries.dagger.compiler)
 }

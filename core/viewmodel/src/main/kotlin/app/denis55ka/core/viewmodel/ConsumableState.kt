@@ -1,4 +1,4 @@
-package app.denis55ka.core
+package app.denis55ka.core.viewmodel
 
 import java.util.concurrent.atomic.AtomicBoolean
 

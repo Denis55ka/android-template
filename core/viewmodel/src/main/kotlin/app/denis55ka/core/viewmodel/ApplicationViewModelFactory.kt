@@ -1,4 +1,4 @@
-package app.denis55ka.core.ui.viewmodel
+package app.denis55ka.core.viewmodel
 
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.denis55ka.core.Dependencies
-import app.denis55ka.core.ui.CoreUiDependencies
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -28,10 +27,10 @@ class ApplicationViewModelFactory @Inject constructor(
 }
 
 inline fun <reified VM : ViewModel> ComponentActivity.applicationViewModels(): Lazy<VM> =
-    viewModels { Dependencies.get<CoreUiDependencies>().applicationViewModelFactory() }
+    viewModels { Dependencies.get<ViewModelDependencies>().applicationViewModelFactory() }
 
 @Composable
 inline fun <reified VM : ViewModel> applicationViewModel(key: String? = null): VM {
-    val factory = remember { Dependencies.get<CoreUiDependencies>().applicationViewModelFactory() }
+    val factory = remember { Dependencies.get<ViewModelDependencies>().applicationViewModelFactory() }
     return viewModel(key = key, factory = factory)
 }

@@ -1,4 +1,4 @@
-package app.denis55ka.core
+package app.denis55ka.core.viewmodel
 
 sealed class ActionState<out T>(
     open val data: T? = null,

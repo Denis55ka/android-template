@@ -1,6 +1,5 @@
 plugins {
-    alias(libraries.plugins.android.library)
-    alias(libraries.plugins.kotlin.android)
+    alias(libraries.plugins.kotlin.jvm)
     alias(libraries.plugins.google.ksp)
 }
 
@@ -8,15 +7,7 @@ apply {
     from("$rootDir/gradle/common/kotlin.gradle")
 }
 
-android {
-    namespace = "app.denis55ka.core.network"
-    buildFeatures {
-        buildConfig = true
-    }
-}
-
 dependencies {
-    api(project(":core"))
     api(project(":core:serialization"))
 
     // Ktor
@@ -29,5 +20,6 @@ dependencies {
     api(libraries.okhttp)
     implementation(libraries.okhttp.logging)
 
+    implementation(libraries.dagger)
     ksp(libraries.dagger.compiler)
 }

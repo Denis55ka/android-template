@@ -1,6 +1,6 @@
-package app.denis55ka.core.ui.extensions
+package app.denis55ka.core.viewmodel.extensions
 
-import app.denis55ka.core.ActionState
+import app.denis55ka.core.viewmodel.ActionState
 
 inline fun <T> ActionState<T>.onSuccess(action: ActionState.Success<T>.() -> Unit) {
     if (this is ActionState.Success) {

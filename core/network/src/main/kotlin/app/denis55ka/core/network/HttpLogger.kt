@@ -1,6 +1,6 @@
 package app.denis55ka.core.network
 
-import android.util.Log
+//import android.util.Log
 import okhttp3.logging.HttpLoggingInterceptor
 
 object HttpLogger : HttpLoggingInterceptor.Logger {
@@ -10,7 +10,7 @@ object HttpLogger : HttpLoggingInterceptor.Logger {
     override fun log(message: String) {
         val parts = message.chunked(MAX_MESSAGE_LENGTH)
         for (part in parts) {
-            Log.i("okhttp.OkHttpClient", part)
+//            Log.i("okhttp.OkHttpClient", part)
         }
     }
 }

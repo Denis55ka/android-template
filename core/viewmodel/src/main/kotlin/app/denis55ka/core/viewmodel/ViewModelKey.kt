@@ -1,4 +1,4 @@
-package app.denis55ka.core.ui.viewmodel
+package app.denis55ka.core.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

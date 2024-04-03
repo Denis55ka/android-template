@@ -23,10 +23,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import app.denis55ka.core.navigation.DeeplinkFactory
-import app.denis55ka.core.ui.SystemUi
-import app.denis55ka.core.ui.viewmodel.applicationViewModel
-import app.denis55ka.feature2.ui.Feature2Screen
-import app.denis55ka.feature3.ui.Feature3Screen
+import app.denis55ka.core.viewmodel.applicationViewModel
+import app.denis55ka.feature2.ui.Feature2Destination
+import app.denis55ka.feature3.ui.Feature3Destination
 
 @Composable
 fun Feature1Screen(onNavigateFeature2: () -> Unit, onNavigateFeature3: () -> Unit) {

@@ -9,8 +9,8 @@ import androidx.navigation.navDeepLink
 import app.denis55ka.core.navigation.DeeplinkFactory
 import app.denis55ka.core.navigation.NavContributor
 import app.denis55ka.core.navigation.extension.navigateTab
-import app.denis55ka.feature2.ui.Feature2Screen
-import app.denis55ka.feature3.ui.Feature3Screen
+import app.denis55ka.feature2.ui.Feature2Destination
+import app.denis55ka.feature3.ui.Feature3Destination
 import javax.inject.Inject
 
 class Feature1NavContributor @Inject constructor() : NavContributor {
@@ -18,14 +18,14 @@ class Feature1NavContributor @Inject constructor() : NavContributor {
     context(NavGraphBuilder)
     override fun contribute(navController: NavController) {
         composable(
-            Feature1Screen.route,
-            deepLinks = listOf(navDeepLink { uriPattern = DeeplinkFactory.create(Feature1Screen.route) }),
+            Feature1Destination.route,
+            deepLinks = listOf(navDeepLink { uriPattern = DeeplinkFactory.create(Feature1Destination.route) }),
             enterTransition = { fadeIn() },
             exitTransition = { fadeOut() },
         ) {
             Feature1Screen(
-                onNavigateFeature2 = { navController.navigateTab(Feature2Screen.route) },
-                onNavigateFeature3 = { navController.navigate(Feature3Screen.route) },
+                onNavigateFeature2 = { navController.navigateTab(Feature2Destination.route) },
+                onNavigateFeature3 = { navController.navigate(Feature3Destination.route) },
             )
         }
     }

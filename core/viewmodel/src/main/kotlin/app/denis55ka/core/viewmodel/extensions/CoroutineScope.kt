@@ -1,6 +1,6 @@
-package app.denis55ka.core.ui.extensions
+package app.denis55ka.core.viewmodel.extensions
 
-import app.denis55ka.core.ActionState
+import app.denis55ka.core.viewmodel.ActionState
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
