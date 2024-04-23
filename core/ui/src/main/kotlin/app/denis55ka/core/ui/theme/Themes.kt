@@ -2,13 +2,11 @@ package app.denis55ka.core.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.LocalElevationOverlay
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Shapes
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
@@ -19,25 +17,21 @@ object Themes {
         darkTheme: Boolean = isSystemInDarkTheme(),
         content: @Composable () -> Unit
     ) {
-        CompositionLocalProvider(
-            LocalElevationOverlay provides null
-        ) {
-            MaterialTheme(
-                colors = if (darkTheme) DarkColors else LightColors,
-                shapes = Shapes,
-                content = content
-            )
-        }
+        MaterialTheme(
+            colorScheme = if (darkTheme) DarkColors else LightColors,
+            shapes = Shapes,
+            content = content
+        )
     }
 }
 
-private val DarkColors = darkColors(
+private val DarkColors = darkColorScheme(
     primary = Color(0xFFFF9800),
     background = Color.Black,
     surface = Color(0xFF16181C),
 )
 
-private val LightColors = lightColors(
+private val LightColors = lightColorScheme(
     primary = Color(0xFFFF9800),
     background = Color.White,
     surface = Color.White,

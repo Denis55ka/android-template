@@ -28,7 +28,7 @@ dependencies {
     api(libraries.androidx.compose.ui.tooling)
     api(libraries.androidx.compose.ui.tooling.preview)
     api(libraries.androidx.compose.foundation)
-    api(libraries.androidx.compose.material)
+    api(libraries.androidx.compose.material3)
     api(libraries.androidx.compose.material.icons.core)
     api(libraries.androidx.compose.material.icons.extended)
 

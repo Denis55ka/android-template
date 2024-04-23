@@ -12,13 +12,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.LibraryMusic
 import androidx.compose.material.icons.rounded.VideoLibrary
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -79,22 +79,22 @@ private fun Content(navControllerHolder: NavControllerHolder) {
             enter = slideInVertically { it },
             exit = slideOutVertically { it },
         ) {
-            BottomNavigation(
+            NavigationBar(
                 Modifier
                     .align(Alignment.BottomCenter)
-                    .background(MaterialTheme.colors.surface)
+                    .background(MaterialTheme.colorScheme.surface)
                     .navigationBarsPadding(),
-                backgroundColor = Color.Unspecified,
-                elevation = 0.dp,
+                containerColor = Color.Unspecified,
+                tonalElevation = 0.dp,
             ) {
-                BottomNavigationItem(
-                    selected = childRoute == Feature1Screen.route,
-                    onClick = { navController.navigateTab(Feature1Screen.route) },
+                NavigationBarItem(
+                    selected = childRoute == Feature1Destination.route,
+                    onClick = { navController.navigateTab(Feature1Destination.route) },
                     icon = { Icon(Icons.Rounded.LibraryMusic, contentDescription = null) },
                 )
-                BottomNavigationItem(
-                    selected = childRoute == Feature2Screen.route,
-                    onClick = { navController.navigateTab(Feature2Screen.route) },
+                NavigationBarItem(
+                    selected = childRoute == Feature2Destination.route,
+                    onClick = { navController.navigateTab(Feature2Destination.route) },
                     icon = { Icon(Icons.Rounded.VideoLibrary, contentDescription = null) },
                 )
             }

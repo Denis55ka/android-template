@@ -4,13 +4,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -23,7 +22,7 @@ internal fun Feature3Screen(onNavigateFeature2: () -> Unit) {
     val viewModel: Feature3AssistedViewModel = viewModel {
         Dependencies.get<Feature3Dependencies>().feature3ViewModelFactory.create(createSavedStateHandle())
     }
-    Scaffold(Modifier.shadow(16.dp)) { paddings ->
+    Scaffold { paddings ->
         Column(
             Modifier
                 .fillMaxSize()
