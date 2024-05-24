@@ -14,12 +14,11 @@ class Feature3NavContributor @Inject constructor() : NavContributor {
 
     context(NavGraphBuilder)
     override fun contribute(navController: NavController) {
-        composable(
-            Feature3Destination.route,
+        composable<Feature3Destination>(
             deepLinks = listOf(navDeepLink { uriPattern = DeeplinkFactory.create(Feature3Destination.route) }),
         ) {
             Feature3Screen(
-                onNavigateFeature2 = { navController.navigateTab(Feature2Destination.route, saveState = false) },
+                onNavigateFeature2 = { navController.navigateTab(Feature2Destination, saveState = false) },
             )
         }
     }

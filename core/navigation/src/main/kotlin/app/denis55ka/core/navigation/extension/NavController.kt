@@ -2,7 +2,7 @@ package app.denis55ka.core.navigation.extension
 
 import androidx.navigation.NavController
 
-fun NavController.navigateTab(route: String, saveState: Boolean = true) =
+fun <T : Any> NavController.navigateTab(route: T, saveState: Boolean = true) =
     navigate(route) {
         popUpTo(graph.startDestinationId) {
             this.saveState = saveState

@@ -1,12 +1,12 @@
 plugins {
     alias(libraries.plugins.android.library)
     alias(libraries.plugins.kotlin.android)
+    alias(libraries.plugins.kotlin.compose)
     alias(libraries.plugins.google.ksp)
 }
 
 apply {
     from("$rootDir/gradle/common/kotlin.gradle")
-    from("$rootDir/gradle/common/android.compose.gradle")
 }
 
 android {
@@ -31,9 +31,6 @@ dependencies {
     api(libraries.androidx.compose.material3)
     api(libraries.androidx.compose.material.icons.core)
     api(libraries.androidx.compose.material.icons.extended)
-
-    // Accompanist
-    api(libraries.accompanist.placeholder)
 
     ksp(libraries.dagger.compiler)
 }

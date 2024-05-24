@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.core.util.Consumer
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -59,12 +60,11 @@ private fun Content(navControllerHolder: NavControllerHolder) {
     val viewModel: MainActivityViewModel = applicationViewModel()
     val navController = rememberNavController().also { navControllerHolder.navController = it }
     val backStackEntry by navController.currentBackStackEntryAsState()
-    val childRoute = backStackEntry?.destination?.route
     Box {
         NavHost(
             navController,
             modifier = Modifier.fillMaxSize(),
-            startDestination = Feature1Destination.route,
+            startDestination = Feature1Destination,
             enterTransition = { ScreenAnimations.EnterSlide },
             exitTransition = { ScreenAnimations.ExitSlide },
             popEnterTransition = { ScreenAnimations.PopEnterSlide },
@@ -72,7 +72,9 @@ private fun Content(navControllerHolder: NavControllerHolder) {
         ) {
             viewModel.navContributors.forEach { it.contribute(navController) }
         }
-        val visible = childRoute == Feature1Destination.route || childRoute == Feature2Destination.route
+        val has1Destination = backStackEntry?.destination?.hasRoute<Feature1Destination>() == true
+        val has2Destination = backStackEntry?.destination?.hasRoute<Feature2Destination>() == true
+        val visible = has1Destination || has2Destination
         AnimatedVisibility(
             visible,
             Modifier.align(Alignment.BottomCenter),
@@ -88,13 +90,13 @@ private fun Content(navControllerHolder: NavControllerHolder) {
                 tonalElevation = 0.dp,
             ) {
                 NavigationBarItem(
-                    selected = childRoute == Feature1Destination.route,
-                    onClick = { navController.navigateTab(Feature1Destination.route) },
+                    selected = has1Destination,
+                    onClick = { navController.navigateTab(Feature1Destination) },
                     icon = { Icon(Icons.Rounded.LibraryMusic, contentDescription = null) },
                 )
                 NavigationBarItem(
-                    selected = childRoute == Feature2Destination.route,
-                    onClick = { navController.navigateTab(Feature2Destination.route) },
+                    selected = has2Destination,
+                    onClick = { navController.navigateTab(Feature2Destination) },
                     icon = { Icon(Icons.Rounded.VideoLibrary, contentDescription = null) },
                 )
             }

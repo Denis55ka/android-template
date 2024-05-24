@@ -6,6 +6,7 @@ plugins {
     alias(libraries.plugins.kotlin.android) apply false
     alias(libraries.plugins.kotlin.jvm) apply false
     alias(libraries.plugins.kotlin.serialization) apply false
+    alias(libraries.plugins.kotlin.compose) apply false
     alias(libraries.plugins.google.ksp) apply false
 }
 

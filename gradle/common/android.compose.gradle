@@ -1,9 +1,0 @@
-android {
-    buildFeatures {
-        compose true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion libraries.versions.androidx.compose.compiler.get()
-    }
-}
