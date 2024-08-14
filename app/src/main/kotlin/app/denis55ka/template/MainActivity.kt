@@ -2,9 +2,9 @@ package app.denis55ka.template
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
@@ -40,7 +40,7 @@ import app.denis55ka.core.viewmodel.applicationViewModel
 import app.denis55ka.feature1.ui.Feature1Destination
 import app.denis55ka.feature2.ui.Feature2Destination
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,6 +1,6 @@
 plugins {
-    alias(libraries.plugins.android.library)
-    alias(libraries.plugins.kotlin.android)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
 }
 
 apply {
@@ -12,9 +12,9 @@ android {
 }
 
 dependencies {
-    api(libraries.kotlinx.coroutines)
+    api(libs.kotlinx.coroutines)
 
-    api(libraries.androidx.core)
+    api(libs.androidx.core)
 
-    api(libraries.dagger)
+    api(libs.dagger)
 }

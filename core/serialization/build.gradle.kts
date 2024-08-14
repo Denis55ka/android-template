@@ -1,7 +1,7 @@
 plugins {
-    alias(libraries.plugins.kotlin.jvm)
-    alias(libraries.plugins.kotlin.serialization)
-    alias(libraries.plugins.google.ksp)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.google.ksp)
 }
 
 apply {
@@ -9,8 +9,8 @@ apply {
 }
 
 dependencies {
-    api(libraries.kotlinx.serialization)
+    api(libs.kotlinx.serialization)
 
-    implementation(libraries.dagger)
-    ksp(libraries.dagger.compiler)
+    implementation(libs.dagger)
+    ksp(libs.dagger.compiler)
 }

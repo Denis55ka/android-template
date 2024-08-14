@@ -1,6 +1,6 @@
 plugins {
-    alias(libraries.plugins.kotlin.jvm)
-    alias(libraries.plugins.google.ksp)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.google.ksp)
 }
 
 apply {
@@ -11,15 +11,15 @@ dependencies {
     api(project(":core:serialization"))
 
     // Ktor
-    api(libraries.ktor)
-    implementation(libraries.ktor.okhttp)
-    implementation(libraries.ktor.content.negotiation)
-    implementation(libraries.ktor.serialization.json)
+    api(libs.ktor)
+    implementation(libs.ktor.okhttp)
+    implementation(libs.ktor.content.negotiation)
+    implementation(libs.ktor.serialization.json)
 
     // OkHttp
-    api(libraries.okhttp)
-    implementation(libraries.okhttp.logging)
+    api(libs.okhttp)
+    implementation(libs.okhttp.logging)
 
-    implementation(libraries.dagger)
-    ksp(libraries.dagger.compiler)
+    implementation(libs.dagger)
+    ksp(libs.dagger.compiler)
 }

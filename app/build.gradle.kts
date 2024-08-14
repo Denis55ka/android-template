@@ -1,10 +1,10 @@
 import com.android.build.gradle.ProguardFiles
 
 plugins {
-    alias(libraries.plugins.android.application)
-    alias(libraries.plugins.kotlin.android)
-    alias(libraries.plugins.kotlin.compose)
-    alias(libraries.plugins.google.ksp)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.ksp)
 }
 
 apply {
@@ -42,5 +42,5 @@ dependencies {
     implementation(project(":feature:feature2"))
     implementation(project(":feature:feature3"))
 
-    ksp(libraries.dagger.compiler)
+    ksp(libs.dagger.compiler)
 }

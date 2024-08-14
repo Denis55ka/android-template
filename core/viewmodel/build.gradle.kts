@@ -1,8 +1,8 @@
 plugins {
-    alias(libraries.plugins.android.library)
-    alias(libraries.plugins.kotlin.android)
-    alias(libraries.plugins.kotlin.compose)
-    alias(libraries.plugins.google.ksp)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.ksp)
 }
 
 apply {
@@ -17,9 +17,9 @@ dependencies {
     api(project(":core"))
 
     // AndroidX
-    api(libraries.androidx.activity.compose)
-    api(libraries.androidx.lifecycle.viewmodel.compose)
+    api(libs.androidx.activity.compose)
+    api(libs.androidx.lifecycle.viewmodel.compose)
 
-    implementation(libraries.dagger)
-    ksp(libraries.dagger.compiler)
+    implementation(libs.dagger)
+    ksp(libs.dagger.compiler)
 }

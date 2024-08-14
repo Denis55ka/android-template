@@ -1,8 +1,8 @@
 plugins {
-    alias(libraries.plugins.android.library)
-    alias(libraries.plugins.kotlin.android)
-    alias(libraries.plugins.kotlin.compose)
-    alias(libraries.plugins.google.ksp)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.ksp)
 }
 
 apply {
@@ -17,20 +17,16 @@ dependencies {
     api(project(":core"))
 
     // AndroidX
-    api(libraries.androidx.appcompat)
-    api(libraries.androidx.activity.compose)
-    api(libraries.androidx.lifecycle.viewmodel.compose)
-    api(libraries.androidx.lifecycle.runtime.compose)
+    api(libs.androidx.activity.compose)
+    api(libs.androidx.lifecycle.viewmodel.compose)
+    api(libs.androidx.lifecycle.runtime.compose)
 
     // Compose
-    api(platform(libraries.androidx.compose.bom))
-    api(libraries.androidx.compose.ui)
-    api(libraries.androidx.compose.ui.tooling)
-    api(libraries.androidx.compose.ui.tooling.preview)
-    api(libraries.androidx.compose.foundation)
-    api(libraries.androidx.compose.material3)
-    api(libraries.androidx.compose.material.icons.core)
-    api(libraries.androidx.compose.material.icons.extended)
+    api(libs.androidx.compose.foundation)
+    api(libs.androidx.compose.ui.tooling.preview)
+    api(libs.androidx.compose.material3)
+    api(libs.androidx.compose.material.icons.core)
+    api(libs.androidx.compose.material.icons.extended)
 
-    ksp(libraries.dagger.compiler)
+    ksp(libs.dagger.compiler)
 }

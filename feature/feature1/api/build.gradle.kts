@@ -1,6 +1,6 @@
 plugins {
-    alias(libraries.plugins.kotlin.jvm)
-    alias(libraries.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 apply {

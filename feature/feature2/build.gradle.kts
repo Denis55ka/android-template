@@ -1,8 +1,8 @@
 plugins {
-    alias(libraries.plugins.android.library)
-    alias(libraries.plugins.kotlin.android)
-    alias(libraries.plugins.kotlin.compose)
-    alias(libraries.plugins.google.ksp)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.ksp)
 }
 
 apply {
@@ -21,5 +21,5 @@ dependencies {
 
     api(project(":feature:feature2:api"))
 
-    ksp(libraries.dagger.compiler)
+    ksp(libs.dagger.compiler)
 }

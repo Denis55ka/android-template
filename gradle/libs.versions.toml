@@ -1,21 +1,19 @@
 [versions]
-android-gradle-plugin = "8.6.0-alpha03"
-kotlin = "2.0.0"
-ktor = "2.3.11"
+android-gradle-plugin = "8.6.0-rc01"
+kotlin = "2.0.10"
+ktor = "2.3.12"
 okhttp = "4.12.0"
-dagger = "2.51.1"
-ksp = "2.0.0-1.0.21"
+dagger = "2.52"
+ksp = "2.0.10-1.0.24"
 
-kotlinx-coroutines = "1.8.0"
-kotlinx-serialization = "1.6.3"
+kotlinx-coroutines = "1.9.0-RC.2"
+kotlinx-serialization = "1.7.1"
 
 androidx-core = "1.13.1"
-androidx-appcompat = "1.7.0-rc01"
-androidx-lifecycle = "2.8.0"
-androidx-activity = "1.9.0"
-androidx-navigation = "2.8.0-beta01"
-androidx-compose = "1.7.0-beta01"
-androidx-compose-bom = "2024.05.00"
+androidx-lifecycle = "2.8.4"
+androidx-activity = "1.9.1"
+androidx-navigation = "2.8.0-beta07"
+androidx-compose = "1.7.0-beta07"
 androidx-material3 = "1.2.1"
 
 [plugins]
@@ -43,15 +41,11 @@ dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
 androidx-navigation-fragment-compose = { module = "androidx.navigation:navigation-fragment-compose", version.ref = "androidx-navigation" }
-androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidx-compose-bom" }
-androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "androidx-compose" }
-androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidx-compose" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "androidx-compose" }
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidx-compose" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "androidx-material3" }
