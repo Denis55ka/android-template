@@ -12,8 +12,7 @@ import javax.inject.Inject
 
 class Feature3NavContributor @Inject constructor() : NavContributor {
 
-    context(NavGraphBuilder)
-    override fun contribute(navController: NavController) {
+    override fun NavGraphBuilder.contribute(navController: NavController) {
         composable<Feature3Destination>(
             deepLinks = listOf(navDeepLink { uriPattern = DeeplinkFactory.create(Feature3Destination.route) }),
         ) {

@@ -12,8 +12,7 @@ import javax.inject.Inject
 
 class Feature2NavContributor @Inject constructor() : NavContributor {
 
-    context(NavGraphBuilder)
-    override fun contribute(navController: NavController) {
+    override fun NavGraphBuilder.contribute(navController: NavController) {
         composable<Feature2Destination>(
             deepLinks = listOf(navDeepLink { uriPattern = DeeplinkFactory.create(Feature2Destination.route) }),
             enterTransition = { fadeIn() },

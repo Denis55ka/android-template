@@ -70,7 +70,7 @@ private fun Content(navControllerHolder: NavControllerHolder) {
             popEnterTransition = { ScreenAnimations.PopEnterSlide },
             popExitTransition = { ScreenAnimations.PopExitSlide },
         ) {
-            viewModel.navContributors.forEach { it.contribute(navController) }
+            viewModel.navContributors.forEach { with(it) { contribute(navController) } }
         }
         val has1Destination = backStackEntry?.destination?.hasRoute<Feature1Destination>() == true
         val has2Destination = backStackEntry?.destination?.hasRoute<Feature2Destination>() == true
